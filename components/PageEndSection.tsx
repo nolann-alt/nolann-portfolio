@@ -1,9 +1,3 @@
-/**
- * PageEndSection - Section de fin de page avec CTA
- * @description "Let's work together!" avec lien mailto et animations au scroll
- * @component Client - forwardRef pour.forwardRef vers section
- */
-
 "use client";
 
 import { forwardRef, useEffect, useRef } from "react";
@@ -16,6 +10,11 @@ type PageEndSectionProps = {
     ctaHref?: string;
 };
 
+/**
+ * PageEndSection - Section finale avec appel à l'action
+ * @description Affiche un message de fin de page et un lien de contact animé au scroll.
+ * @component Client
+ */
 const PageEndSection = forwardRef<HTMLElement, PageEndSectionProps>(function PageEndSection(
     { title = "Let's work together !", ctaLabel = "CONTACT ME", ctaHref = "mailto:nolann.lescop@outlook.com" },
     ref

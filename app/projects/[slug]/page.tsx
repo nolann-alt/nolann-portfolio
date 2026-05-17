@@ -1,10 +1,3 @@
-/**
- * Page de détail d'un projet
- * @description Assemble ProjectHero, ProjectAbout, ProjectScreenshots, ProjectNavigation, PageEndSection
- * @route /projects/[slug]
- * @async - Server component avec données statiques
- */
-
 import { projects, getProjectBySlug, getNextProject, getPreviousProject } from "@/data/projects";
 import ProjectHero from "@/components/ProjectHero";
 import ProjectAbout from "@/components/ProjectAbout";
@@ -12,11 +5,20 @@ import ProjectScreenshots from "@/components/ProjectScreenshots";
 import ProjectNavigation from "@/components/ProjectNavigation";
 import PageEndSection from "@/components/PageEndSection";
 
-// Génère les paramètres statiques pour tous les projets (static export)
+/**
+ * generateStaticParams - Génère les routes statiques des projets
+ * @description Nécessaire pour l'export statique de chaque page /projects/[slug].
+ */
 export function generateStaticParams() {
     return projects.map((project) => ({ slug: project.slug }));
 }
 
+/**
+ * ProjectDetailPage - Page de détail d'un projet
+ * @description Assemble le hero, le contenu du projet, la navigation et le CTA final.
+ * @route /projects/[slug]
+ * @async Server component
+ */
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
 

@@ -2,11 +2,7 @@
 "[project]/components/PageEndSection.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * PageEndSection - Section de fin de page avec CTA
- * @description "Let's work together!" avec lien mailto et animations au scroll
- * @component Client - forwardRef pour.forwardRef vers section
- */ __turbopack_context__.s([
+__turbopack_context__.s([
     "default",
     ()=>__TURBOPACK__default__export__
 ]);
@@ -20,7 +16,11 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const PageEndSection = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(_c = _s(function PageEndSection({ title = "Let's work together !", ctaLabel = "CONTACT ME", ctaHref = "mailto:nolann.lescop@outlook.com" }, ref) {
+/**
+ * PageEndSection - Section finale avec appel à l'action
+ * @description Affiche un message de fin de page et un lien de contact animé au scroll.
+ * @component Client
+ */ const PageEndSection = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(_c = _s(function PageEndSection({ title = "Let's work together !", ctaLabel = "CONTACT ME", ctaHref = "mailto:nolann.lescop@outlook.com" }, ref) {
     _s();
     const titleRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const ctaRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -79,7 +79,7 @@ const PageEndSection = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$p
                     children: title
                 }, void 0, false, {
                     fileName: "[project]/components/PageEndSection.tsx",
-                    lineNumber: 48,
+                    lineNumber: 47,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -94,29 +94,29 @@ const PageEndSection = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$p
                                 className: "cta-underline absolute left-0 bottom-1 md:bottom-12 h-3 md:h-4 w-full origin-left scale-x-0 bg-[#1f1d1f] transition-transform duration-300 ease-out md:group-hover:scale-x-100"
                             }, void 0, false, {
                                 fileName: "[project]/components/PageEndSection.tsx",
-                                lineNumber: 54,
+                                lineNumber: 53,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/PageEndSection.tsx",
-                        lineNumber: 52,
+                        lineNumber: 51,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/PageEndSection.tsx",
-                    lineNumber: 51,
+                    lineNumber: 50,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/PageEndSection.tsx",
-            lineNumber: 47,
+            lineNumber: 46,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/PageEndSection.tsx",
-        lineNumber: 46,
+        lineNumber: 45,
         columnNumber: 9
     }, this);
 }, "ORVHDfz8whlKfmNIoYnI8nvm1uU=")), "ORVHDfz8whlKfmNIoYnI8nvm1uU=");
@@ -132,11 +132,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/TextParagraph.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * TextParagraph - Section de texte avec animation alternée des lignes
- * @description Citation affichée avec effet visuel alterné (gauche/droite)
- * @component Client - GSAP pour l'animation des lignes
- */ __turbopack_context__.s([
+__turbopack_context__.s([
     "default",
     ()=>TextParagraph
 ]);
@@ -158,6 +154,7 @@ function TextParagraph({ subtitle = "Thank you for your visit", paragraphs = [
     ]
 ] }) {
     _s();
+    // useRef: référence racine utilisée comme scope des animations GSAP
     const sectionRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     // Animation alternée des lignes (gauche/droite)
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
@@ -232,7 +229,7 @@ function TextParagraph({ subtitle = "Thank you for your visit", paragraphs = [
                             columnNumber: 21
                         }, this),
                         paragraphs.map((lines, paragraphIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: `font-bodoni text-3xl md:text-4xl lg:text-[4.5rem] xl:text-[6rem] leading-[1.3] tracking-tighter text-[#1f1d1f] flex flex-col items-center text-center md:gap-y-12 lg:gap-y-20 ${paragraphIndex > 0 ? "mt-10 md:mt-16" : ""}`,
+                                className: `font-bodoni text-3xl md:text-4xl lg:text-[4.5rem] xl:text-[6rem] leading-[1.3] tracking-tighter text-[#1f1d1f] flex flex-col items-center text-center md:gap-y-12 lg:gap-y-20 ${paragraphIndex > 0 ? "mt-0 md:mt-16" : ""}`,
                                 children: lines.map((line, lineIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "text-paragraph-line block",
                                         children: line

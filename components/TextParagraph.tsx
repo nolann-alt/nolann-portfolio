@@ -1,9 +1,3 @@
-/**
- * TextParagraph - Section de texte avec animation alternée des lignes
- * @description Citation affichée avec effet visuel alterné (gauche/droite)
- * @component Client - GSAP pour l'animation des lignes
- */
-
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -15,7 +9,13 @@ type TextParagraphProps = {
     paragraphs?: string[][];
 };
 
+/**
+ * TextParagraph - Bloc de citation/texte animé
+ * @description Affiche des lignes de texte avec animation alternée gauche/droite au scroll.
+ * @component Client
+ */
 export default function TextParagraph({ subtitle = "Thank you for your visit", paragraphs = [["Your time means a lot,", "and I hope you enjoyed", "discovering this portfolio."]] }: TextParagraphProps) {
+    // useRef: référence racine utilisée comme scope des animations GSAP
     const sectionRef = useRef<HTMLElement | null>(null);
 
     // Animation alternée des lignes (gauche/droite)
@@ -43,7 +43,7 @@ export default function TextParagraph({ subtitle = "Thank you for your visit", p
                 <div className="w-full max-w-[2200px] flex flex-col items-center text-center self-center mx-auto">
                     <span className="text-[9px] md:text-2xl uppercase mb-5 md:mb-16 text-[#1f1d1f]">{subtitle}</span>
                     {paragraphs.map((lines, paragraphIndex) => (
-                        <p key={`paragraph-${paragraphIndex}`} className={`font-bodoni text-3xl md:text-4xl lg:text-[4.5rem] xl:text-[6rem] leading-[1.3] tracking-tighter text-[#1f1d1f] flex flex-col items-center text-center md:gap-y-12 lg:gap-y-20 ${paragraphIndex > 0 ? "mt-10 md:mt-16" : ""}`}>
+                        <p key={`paragraph-${paragraphIndex}`} className={`font-bodoni text-3xl md:text-4xl lg:text-[4.5rem] xl:text-[6rem] leading-[1.3] tracking-tighter text-[#1f1d1f] flex flex-col items-center text-center md:gap-y-12 lg:gap-y-20 ${paragraphIndex > 0 ? "mt-0 md:mt-16" : ""}`}>
                             {lines.map((line, lineIndex) => (
                                 <span key={`${line}-${lineIndex}`} className="text-paragraph-line block">{line}</span>
                             ))}

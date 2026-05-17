@@ -1,9 +1,3 @@
-/**
- * Intro - Section d'introduction en haut de la page d'accueil
- * @description Vidéo avec animation de scroll (zoom + texte qui disparaît)
- * @component Client - GSAP ScrollTrigger pour le pin et scrub
- */
-
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -12,6 +6,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 const BASE_PATH = "/my-portfolio-next.js";
 
+/**
+ * Intro - Ouverture visuelle de la page d'accueil
+ * @description Anime une vidéo hero avec effet de zoom et disparition progressive du texte au scroll.
+ * @component Client
+ */
 const Intro: React.FC = () => {
     // Refs pour les animations GSAP
     const imageRef = useRef<HTMLImageElement | null>(null);
@@ -21,6 +20,7 @@ const Intro: React.FC = () => {
     const descRef = useRef<HTMLParagraphElement | null>(null);
     const titleRef = useRef<HTMLHeadingElement | null>(null);
 
+    // useEffect: calcule les dimensions et lance les animations liées au scroll après montage
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 

@@ -1,10 +1,3 @@
-/**
- * ProjectAbout - Section "À propos du projet" pour la page de détail
- * @description Affiche 4 sections: Overview, Core Features, Technologies et Links
- * @description Style inspiré de la section Background de la page About
- * @component Client - Utilise GSAP pour les animations au scroll
- */
-
 "use client";
 
 import { useRef, useEffect } from "react";
@@ -30,7 +23,11 @@ interface AboutProjectProps {
     links: ProjectLinks;
 }
 
-// Composant principal
+/**
+ * ProjectAbout - Section de détail d'un projet
+ * @description Affiche l'overview, les fonctionnalités, les technologies et les liens externes.
+ * @component Client
+ */
 export default function ProjectAbout({
     overview,
     coreFeatures,
@@ -213,7 +210,10 @@ export default function ProjectAbout({
     );
 }
 
-// Composant interne réutilisable pour les sections texte
+/**
+ * SectionBlock - Bloc réutilisable pour une section texte
+ * @description Uniformise la structure titre + contenu utilisée dans la page projet.
+ */
 function SectionBlock({ title, content }: { title: string; content: string }) {
     return (
         <div className="flex flex-col md:flex-row w-full gap-8 md:gap-4">

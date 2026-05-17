@@ -1,12 +1,4 @@
-/**
- * Page d'accueil
- * @description Composition des composants: Intro, Hero, FeaturedProjects, TextParagraph, PageEndSection
- * @route /
- */
-
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 import Hero from "@/components/Hero";
 import FeaturedProjects from "@/components/FeaturedProjects";
@@ -18,6 +10,11 @@ export const metadata = {
     description: "Portfolio of Nolann Lescop",
 };
 
+/**
+ * Page d'accueil
+ * @description Composition des composants: Intro, Hero, FeaturedProjects, TextParagraph, PageEndSection
+ * @route /
+ */
 export default function Home() {
     return (
         <div className="relative">

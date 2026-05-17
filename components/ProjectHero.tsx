@@ -1,9 +1,3 @@
-/**
- * ProjectHero - Section Hero d'une page de projet
- * @description Image plein écran avec animation de reveal, titre avec étoiles, navigation Back/Home/Next
- * @component Client - Animations GSAP et ScrollTrigger
- */
-
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -27,6 +21,11 @@ interface ProjectHeroProps {
   previousProject: { slug: string; title: string } | null;
 }
 
+/**
+ * ProjectHero - En-tête d'une page projet
+ * @description Affiche le visuel principal, la navigation de projet et les informations clés avec animations.
+ * @component Client
+ */
 export default function ProjectHero({ project, nextProject, previousProject }: ProjectHeroProps) {
     // Refs pour les animations GSAP
     const containerRef = useRef<HTMLDivElement>(null);

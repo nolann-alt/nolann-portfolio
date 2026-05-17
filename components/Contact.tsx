@@ -5,6 +5,7 @@
  */
 
 function Contact() {
+    // Placeholder temporaire: composant gardé pour brancher un vrai formulaire plus tard.
     return <div></div>;
 }
 

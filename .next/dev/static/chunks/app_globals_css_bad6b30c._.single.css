@@ -551,16 +551,6 @@ html {
   content: var(--tw-content);
 }
 
-.diff {
-  direction: ltr;
-  grid-template-columns: auto 1fr;
-  width: 100%;
-  display: grid;
-  position: relative;
-  overflow: hidden;
-  container-type: inline-size;
-}
-
 @media (hover: hover) {
   .btn:hover {
     --tw-border-opacity: 1;
@@ -715,6 +705,32 @@ html {
   justify-self: end;
 }
 
+.stack {
+  place-items: flex-end center;
+  display: inline-grid;
+}
+
+.stack > * {
+  z-index: 1;
+  opacity: .6;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  width: 100%;
+  transform: translateY(10%)scale(.9);
+}
+
+.stack > :nth-child(2) {
+  z-index: 2;
+  opacity: .8;
+  transform: translateY(5%)scale(.95);
+}
+
+.stack > :first-child {
+  z-index: 3;
+  opacity: 1;
+  transform: translateY(0)scale(1);
+}
+
 .table {
   border-radius: var(--rounded-box, 1rem);
   text-align: left;
@@ -774,6 +790,12 @@ html {
 
 :where(.timeline > li > hr):last-child {
   grid-area: 2 / 3 / auto / none;
+}
+
+.btm-nav > :where(.active) {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
+  border-top-width: 2px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1022,6 +1044,11 @@ html {
   background-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-bg-opacity)));
 }
 
+.table-zebra tr.active, .table-zebra tr.active:nth-child(2n), .table-zebra-zebra tbody tr:nth-child(2n) {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b3, oklch(var(--b3) / var(--tw-bg-opacity)));
+}
+
 .table :where(thead tr, tbody tr:not(:last-child), tbody tr:first-child:last-child) {
   --tw-border-opacity: 1;
   border-bottom-width: 1px;
@@ -1084,34 +1111,16 @@ html {
   }
 }
 
-.artboard.phone-1.horizontal, .artboard.phone-1.artboard-horizontal {
-  width: 568px;
-  height: 320px;
+.btm-nav-xs > :where(.active) {
+  border-top-width: 1px;
 }
 
-.artboard.phone-2.horizontal, .artboard.phone-2.artboard-horizontal {
-  width: 667px;
-  height: 375px;
+.btm-nav-sm > :where(.active), .btm-nav-md > :where(.active) {
+  border-top-width: 2px;
 }
 
-.artboard.phone-3.horizontal, .artboard.phone-3.artboard-horizontal {
-  width: 736px;
-  height: 414px;
-}
-
-.artboard.phone-4.horizontal, .artboard.phone-4.artboard-horizontal {
-  width: 812px;
-  height: 375px;
-}
-
-.artboard.phone-5.horizontal, .artboard.phone-5.artboard-horizontal {
-  width: 896px;
-  height: 414px;
-}
-
-.artboard.phone-6.horizontal, .artboard.phone-6.artboard-horizontal {
-  width: 1024px;
-  height: 320px;
+.btm-nav-lg > :where(.active) {
+  border-top-width: 4px;
 }
 
 .btn-md {
@@ -1154,14 +1163,6 @@ html {
 
 .visible {
   visibility: visible;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.static {
-  position: static;
 }
 
 .fixed {
@@ -1244,6 +1245,11 @@ html {
   margin-bottom: .5rem;
 }
 
+.my-24 {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1320,10 +1326,6 @@ html {
 
 .mt-0 {
   margin-top: 0;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
 }
 
 .mt-14 {
@@ -2379,6 +2381,11 @@ html, body {
     right: auto;
   }
 
+  .md\:my-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   .md\:my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -2528,12 +2535,8 @@ html, body {
     height: 100vh;
   }
 
-  .md\:min-h-\[100vh\] {
+  .md\:min-h-\[100vh\], .md\:min-h-screen {
     min-height: 100vh;
-  }
-
-  .md\:min-h-\[95vh\] {
-    min-height: 95vh;
   }
 
   .md\:w-1\/3 {

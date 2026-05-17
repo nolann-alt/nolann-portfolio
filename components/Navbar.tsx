@@ -1,9 +1,3 @@
-/**
- * Navbar - Barre de navigation avec menu mobile
- * @description Navigation fixe avec menu fullscreen animé (GSAP)
- * @component Client - useState pour le menu, GSAP pour les animations
- */
-
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -15,6 +9,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 const BASE_PATH = "/my-portfolio-next.js";
 
+/**
+ * Navbar - Barre de navigation principale
+ * @description Gère un menu plein écran animé et adapte l'affichage selon la route courante.
+ * @component Client
+ */
 export const Navbar: React.FC = () => {
     const pathname = usePathname();
     const isProjectPage = pathname.startsWith('/projects/');
@@ -26,7 +25,7 @@ export const Navbar: React.FC = () => {
     // Classes conditionnelles selon la page et l'état du menu
     const containerClass = isProjectPage ? "hidden" : `absolute md:fixed top-4 left-0 inset-x-0 z-50 grid grid-cols-2 md:grid-cols-3 items-center p-5 md:px-[3%] ${menuOpen ? "" : "mix-blend-difference text-white"}`;
 
-    // Animations à l'ouverture du menu
+    // useEffect: lance les animations d'entrée uniquement quand le menu devient visible
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         if (!menuOpen) return;
@@ -52,7 +51,7 @@ export const Navbar: React.FC = () => {
         return () => ctx.revert();
     }, [menuOpen]);
 
-    // Nettoyage à la fermeture du menu
+    // useEffect: réinitialise visuellement les éléments quand le menu se ferme
     useEffect(() => {
         if (!menuOpen) {
             const timer = setTimeout(() => {
@@ -102,10 +101,15 @@ export const Navbar: React.FC = () => {
                             <Link href="/about" onClick={() => setMenuOpen(false)} className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">ABOUT ME </Link>
                         </div>
                         <div>
-                            <a href="" target="_blank" rel="noopener noreferrer" className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">EXPERIENCES </a>
+                            <Link href="/experiences" onClick={() => setMenuOpen(false)} className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
+                                EXPERIENCES
+                            </Link>
                         </div>
                         <div>
-                            <a href={`${BASE_PATH}/projects`} target="_blank" rel="noopener noreferrer" className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">PROJECTS </a>
+                            <Link href="/projects" onClick={() => setMenuOpen(false)}
+                                className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
+                                PROJECTS
+                            </Link>
                         </div>
                     </div>
                 </div>

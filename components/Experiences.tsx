@@ -1,9 +1,3 @@
-/**
- * Experiences - Section des expériences professionnelles et compétences
- * @description Liste des expériences (stage, projets) et grille des technologies maîtrisées
- * @component Server
- */
-
 import Title from "@/components/Title";
 
 const skills = [
@@ -48,6 +42,11 @@ const experiences = [
     { id: 5, type: "Internship", role: "Intern", company: "ETS Gabillet", period: "2021", description: ["Gained insight into warehouse operations and stock management", "Learned about the day-to-day role of a warehouse operator", "Used IT tools for equipment diagnostics and maintenance"], image: "/experiences/ets-gabillet.png" }
 ];
 
+/**
+ * Experiences - Section expériences et stack technique
+ * @description Présente les expériences académiques/professionnelles et les technologies pratiquées.
+ * @component Server
+ */
 const Experiences: React.FC = () => {
     return (
         <section id="experiences" className="relative mb-10 md:mb-32">

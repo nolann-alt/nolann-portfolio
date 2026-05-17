@@ -42,7 +42,7 @@
         256,
         384
       ],
-      "path": "/my-portfolio-next.js/_next/image",
+      "path": "/my-portfolio-next.js/_next/image/",
       "loader": "default",
       "loaderFile": "",
       "domains": [],
@@ -83,7 +83,7 @@
     },
     "basePath": "/my-portfolio-next.js",
     "sassOptions": {},
-    "trailingSlash": false,
+    "trailingSlash": true,
     "i18n": null,
     "productionBrowserSourceMaps": false,
     "excludeDefaultMomentLocales": true,

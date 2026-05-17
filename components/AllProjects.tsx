@@ -1,9 +1,3 @@
-/**
- * AllProjects - Composant affichant tous les projets
- * @description Grille de tous les projets avec animation de reveal au scroll
- * @component Client
- */
-
 "use client";
 
 import Link from "next/link";
@@ -15,6 +9,11 @@ import { projects } from "@/data/projects";
 
 const BASE_PATH = "/my-portfolio-next.js";
 
+/**
+ * AllProjects - Composant affichant tous les projets
+ * @description Grille de tous les projets avec animation de reveal au scroll
+ * @component Client
+ */
 export default function AllProjects() {
     const sectionRef = useRef<HTMLElement | null>(null);
 

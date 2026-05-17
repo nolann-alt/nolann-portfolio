@@ -1,9 +1,3 @@
-/**
- * About - Section "À propos" sur la page d'accueil
- * @description Affichage des informations principales (étudiant, passion, vélo) avec icônes
- * @component Server
- */
-
 import Title from "@/components/Title";
 import { Bike, Code, Flame, GraduationCap } from "lucide-react";
 
@@ -36,6 +30,11 @@ const aboutSections = [
     }
 ];
 
+/**
+ * About - Section de présentation rapide
+ * @description Affiche les points clés du profil avec icônes et mise en page en cartes.
+ * @component Server
+ */
 const About: React.FC = () => {
     return (
         <section id="about" className="relative">
@@ -47,6 +46,7 @@ const About: React.FC = () => {
                             <div className="hidden md:block">
                                 <img src={`${BASE_PATH}/profil.jpg`} alt="profil" className="w-96 h-96 object-cover rounded-xl" />
                             </div>
+                            {/* Mapping des informations pour garder un rendu homogène et facilement maintenable */}
                             <div className="md:ml-4 space-y-4">
                                 {aboutSections.map((section) => (
                                     <div key={section.id} className="flex flex-col md:flex-row items-center p-5 rounded-xl shadow-xl border-[#1e1f1f] border">

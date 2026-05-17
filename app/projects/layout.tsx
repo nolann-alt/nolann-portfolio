@@ -5,5 +5,6 @@
  */
 
 export default function ProjectsLayout({ children }: { children: React.ReactNode }) {
+    // Garde une hauteur minimale écran pour éviter les pages "courtes" visuellement cassées.
     return <div className="min-h-screen">{children}</div>;
 }

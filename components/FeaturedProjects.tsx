@@ -1,9 +1,3 @@
-/**
- * FeaturedProjects - Section des projets en vedette sur la page d'accueil
- * @description Grille des projets sélectionnés avec animations et lien "More projects"
- * @component Client - SplitText pour animation au hover
- */
-
 "use client";
 
 import Link from "next/link";
@@ -16,9 +10,16 @@ import { featuredProjects } from "@/data/projects";
 
 const BASE_PATH = "/my-portfolio-next.js";
 
+/**
+ * FeaturedProjects - Sélection de projets mis en avant
+ * @description Met en valeur quelques projets avec animations et lien vers la page complète.
+ * @component Client
+ */
 export default function FeaturedProjects() {
+    // useRef: pointe le lien "More projects" pour appliquer une animation SplitText au hover
     const learnMore = useRef<HTMLAnchorElement | null>(null);
 
+    // useEffect: configure les animations GSAP au montage et restaure l'état initial au démontage
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(SplitText);
@@ -106,7 +107,7 @@ export default function FeaturedProjects() {
 
             <div className="flex flex-col items-center mt-16 md:mt-32">
                 <div className="w-[60%] border-t-2 border-dashed border-[#1e1f1f]"></div>
-                <Link href={`${BASE_PATH}/projects`} ref={learnMore} className="flex flex-row items-center gap-3 uppercase text-[#1f1d1f] py-2 font-bold text-2xl md:text-4xl">
+                <Link href="/projects" ref={learnMore} className="flex flex-row items-center gap-3 uppercase text-[#1f1d1f] py-2 font-bold text-2xl md:text-4xl">
                     <span>More</span>
                     <span className="ml-1">projects</span>
                     <span className="ml-1 fp-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>

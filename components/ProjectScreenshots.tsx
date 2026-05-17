@@ -1,9 +1,3 @@
-/**
- * ProjectScreenshots - Section d'affichage des captures d'écran du projet
- * @description Affiche les screenshots du projet dans un fond noir avec animations
- * @component Client
- */
-
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -17,6 +11,11 @@ interface ProjectScreenshotsProps {
     screenshots: string[];
 }
 
+/**
+ * ProjectScreenshots - Galerie de captures d'écran
+ * @description Affiche les visuels d'un projet avec animations d'apparition.
+ * @component Client
+ */
 export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsProps) {
     const sectionRef = useRef<HTMLElement>(null);
     const asteriskLeftRef = useRef<SVGSVGElement>(null);

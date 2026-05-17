@@ -1,9 +1,3 @@
-/**
- * ProjectNavigation - Navigation entre projets (page suivante/précédente)
- * @description Affiche le projet suivant avec image cliquable, points décoratifs
- * @component Client - Effet grayscale au scroll
- */
-
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -20,6 +14,11 @@ interface ProjectNavigationProps {
     previousProject: { slug: string; title: string; image: string } | null;
 }
 
+/**
+ * ProjectNavigation - Navigation entre projets
+ * @description Propose les liens vers le projet précédent/suivant avec aperçu visuel.
+ * @component Client
+ */
 export default function ProjectNavigation({ nextProject, previousProject }: ProjectNavigationProps) {
     const imageContainerRef = useRef<HTMLDivElement>(null);
 
