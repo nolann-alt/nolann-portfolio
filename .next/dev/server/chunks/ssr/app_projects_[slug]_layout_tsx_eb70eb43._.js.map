@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/lescop/Documents/Projets_Perso/mon-portfolio/app/projects/%5Bslug%5D/layout.tsx"],"sourcesContent":["/**\n * Layout des pages projets\n * @description Enveloppe commune pour les pages de projets (min-height)\n * @layout\n */\n\nexport default function ProjectsLayout({ children }: { children: React.ReactNode }) {\n    // Garde une hauteur minimale écran pour éviter les pages \"courtes\" visuellement cassées.\n    return <div className=\"min-h-screen\">{children}</div>;\n}"],"names":[],"mappings":"AAAA;;;;CAIC;;;;;;AAEc,SAAS,eAAe,EAAE,QAAQ,EAAiC;IAC9E,yFAAyF;IACzF,qBAAO,8OAAC;QAAI,WAAU;kBAAgB;;;;;;AAC1C"}}]
-}
