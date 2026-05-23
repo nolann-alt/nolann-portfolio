@@ -1,5 +1,5 @@
-import { Navbar } from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import { Pinyon_Script, Bebas_Neue, Bodoni_Moda } from 'next/font/google';
 import "./globals.css";
 
@@ -25,7 +25,7 @@ const bodoni = Bodoni_Moda({ subsets: ['latin'], weight: ['800'], variable: '--f
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={`relative min-h-screen bg-[#f4f4f3] text-[#1f1d1f] antialiased ${pinyon.variable} ${bebas.variable} ${bodoni.variable}`}>
+            <body className={`relative min-h-screen bg-cream text-ink antialiased ${pinyon.variable} ${bebas.variable} ${bodoni.variable}`}>
                 {/* Navigation persistante sur toutes les pages publiques */}
                 <Navbar />
                 {/* Zone dynamique injectée par l'App Router selon la route active */}

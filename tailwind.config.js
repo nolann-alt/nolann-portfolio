@@ -11,6 +11,12 @@ module.exports = {
                 sans: ['var(--font-sans)', 'sans-serif'],
                 bodoni: ['var(--font-bodoni)', 'serif'],
             },
+            colors: {
+                ink: '#1e1f1f',
+                dark: '#0f0f10',
+                page: '#121212',
+                cream: '#f4f4f3',
+            },
         },
     },
     plugins: [

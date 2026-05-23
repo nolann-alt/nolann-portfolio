@@ -3,8 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
-const BASE_PATH = "/my-portfolio-next.js";
+import { BASE_PATH } from "@/lib/constants";
 
 /**
  * Intro - Ouverture visuelle de la page d'accueil
@@ -86,10 +85,10 @@ const Intro: React.FC = () => {
                     <video src={`${BASE_PATH}/velo/Intro.mp4`} autoPlay loop muted playsInline className="w-full h-full object-cover" />
                 </div>
                 <div ref={textRef} className="flex flex-col justify-center items-center">
-                    <div ref={lineRef} className="w-full border-t-2 border-dashed border-[#1e1f1f] opacity-70 my-2 md:my-8 mx-0.5"></div>
+                    <div ref={lineRef} className="w-full border-t-2 border-dashed border-ink opacity-70 my-2 md:my-8 mx-0.5"></div>
                     <p ref={descRef} className="my-4 text-2xl md:text-6xl text-center md:text-left">Computer Science B.U.T. Student.</p>
                     <h1 ref={titleRef} className="text-5xl md:text-[12vw] font-bold text-center md:text-left -mt-2 md:mt-0">
-                        Nolann <span className="text-[#1e1f1f]">LESCOP</span>
+                        Nolann <span className="text-ink">LESCOP</span>
                     </h1>
                 </div>
             </div>

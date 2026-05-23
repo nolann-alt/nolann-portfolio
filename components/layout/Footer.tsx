@@ -7,13 +7,13 @@ import { Github, Linkedin, Youtube } from "lucide-react";
  */
 const Footer = () => {
     return (
-        <footer className="relative w-full border-t-2 border-[#1f1d1f] px-5 py-8 md:px-[3%]">
+        <footer className="relative w-full border-t-2 border-ink px-5 py-8 md:px-[3%]">
             <div className="flex flex-col items-center justify-between gap-6 md:flex-row md:gap-0">
                 {/* Zone identité: renforce la signature visuelle du portfolio */}
                 <aside className="text-center md:text-left">
                     <p className="font-bold">
-                        <a href="#" className="font-bold text-2xl text-[#1f1d1f]">
-                            Nolann&apos;s <span className="text-[#1e1f1f]">Portfolio</span>
+                        <a href="#" className="font-bold text-2xl text-ink">
+                            Nolann&apos;s <span className="text-ink">Portfolio</span>
                         </a>
                     </p>
                     <p className="text-sm md:text-base">Copyright © {new Date().getFullYear()} - All right reserved</p>

@@ -6,8 +6,7 @@ import Image from "next/image";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
-const BASE_PATH = "/my-portfolio-next.js";
+import { BASE_PATH } from "@/lib/constants";
 
 interface ProjectNavigationProps {
     nextProject: { slug: string; title: string; image: string } | null;
@@ -46,8 +45,8 @@ export default function ProjectNavigation({ nextProject, previousProject }: Proj
         <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
             {/* Points en haut */}
             <div className="flex justify-between items-center px-4 mt-4 md:mt-8">
-                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
-                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
             </div>
 
             {/* Navigation projet */}
@@ -56,13 +55,13 @@ export default function ProjectNavigation({ nextProject, previousProject }: Proj
                     {/* Projet suivant */}
                     {nextProject ? (
                         <Link href={`/projects/${nextProject.slug}`} className="flex justify-between items-end mb-2 group">
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">Next Project</span>
-                            <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-[#1f1f1f] group-hover:translate-x-1 transition-transform" />
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">Next Project</span>
+                            <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-ink group-hover:translate-x-1 transition-transform" />
                         </Link>
                     ) : (
                         <div className="flex justify-between items-end mb-2 opacity-40">
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">Next Project</span>
-                            <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-[#1f1f1f]" />
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">Next Project</span>
+                            <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-ink" />
                         </div>
                     )}
 
@@ -75,20 +74,20 @@ export default function ProjectNavigation({ nextProject, previousProject }: Proj
                         </Link>
                     ) : (
                         <div className="relative aspect-video bg-[#e5e5e0] flex items-center justify-center">
-                            <span className="text-[#1f1d1f] font-bold uppercase text-sm md:text-3xl">End of projects</span>
+                            <span className="text-ink font-bold uppercase text-sm md:text-3xl">End of projects</span>
                         </div>
                     )}
 
                     {/* Projet précédent */}
                     {previousProject ? (
                         <Link href={`/projects/${previousProject.slug}`} className="flex justify-between items-start mt-2 group">
-                            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-[#1f1f1f] group-hover:-translate-x-1 transition-transform" />
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">Previous Project</span>
+                            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-ink group-hover:-translate-x-1 transition-transform" />
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">Previous Project</span>
                         </Link>
                     ) : (
                         <div className="flex justify-between items-start mt-2 opacity-40">
-                            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-[#1f1f1f]" />
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">Previous Project</span>
+                            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-ink" />
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">Previous Project</span>
                         </div>
                     )}
                 </div>
@@ -96,8 +95,8 @@ export default function ProjectNavigation({ nextProject, previousProject }: Proj
 
             {/* Points en bas */}
             <div className="flex justify-between items-center px-4 mb-4 md:mb-8">
-                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
-                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1f1f] rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
             </div>
         </div>
     );

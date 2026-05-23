@@ -37,13 +37,13 @@ export default function TextParagraph({ subtitle = "Thank you for your visit", p
         <section ref={sectionRef} className="flex flex-col items-center justify-center h-[90vh] md:min-h-[100vh] w-full px-5 relative">
             <div className="h-full w-[98vw] max-w-[2600px] grid grid-rows-[auto_1fr_auto] items-center">
                 <div className="w-full flex justify-between mb-20 md:mb-56 mt-4 md:mt-8 px-4">
-                    <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
-                    <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
+                    <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
+                    <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
                 </div>
                 <div className="w-full max-w-[2200px] flex flex-col items-center text-center self-center mx-auto">
-                    <span className="text-[9px] md:text-2xl uppercase mb-5 md:mb-16 text-[#1f1d1f]">{subtitle}</span>
+                    <span className="text-[9px] md:text-2xl uppercase mb-5 md:mb-16 text-ink">{subtitle}</span>
                     {paragraphs.map((lines, paragraphIndex) => (
-                        <p key={`paragraph-${paragraphIndex}`} className={`font-bodoni text-3xl md:text-4xl lg:text-[4.5rem] xl:text-[6rem] leading-[1.3] tracking-tighter text-[#1f1d1f] flex flex-col items-center text-center md:gap-y-12 lg:gap-y-20 ${paragraphIndex > 0 ? "mt-0 md:mt-16" : ""}`}>
+                        <p key={`paragraph-${paragraphIndex}`} className={`font-bodoni text-3xl md:text-4xl lg:text-[4.5rem] xl:text-[6rem] leading-[1.3] tracking-tighter text-ink flex flex-col items-center text-center md:gap-y-12 lg:gap-y-20 ${paragraphIndex > 0 ? "mt-0 md:mt-16" : ""}`}>
                             {lines.map((line, lineIndex) => (
                                 <span key={`${line}-${lineIndex}`} className="text-paragraph-line block">{line}</span>
                             ))}
@@ -51,8 +51,8 @@ export default function TextParagraph({ subtitle = "Thank you for your visit", p
                     ))}
                 </div>
                 <div className="w-full flex justify-between mt-20 md:mt-56 mb-4 md:mb-8 px-4">
-                    <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
-                    <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
+                    <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
+                    <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
                 </div>
             </div>
         </section>

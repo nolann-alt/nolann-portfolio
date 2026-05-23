@@ -4,8 +4,7 @@ import { useEffect, useRef } from "react";
 import { Asterisk } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
-const BASE_PATH = "/my-portfolio-next.js";
+import { BASE_PATH } from "@/lib/constants";
 
 interface ProjectScreenshotsProps {
     screenshots: string[];
@@ -65,19 +64,19 @@ export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsPr
             <div className="flex flex-col md:items-center md:justify-center w-full z-10 px-4 text-center mb-10 md:mb-16">
                 <div className="flex flex-col items-center">
                     <div className="flex items-center gap-3 md:gap-4">
-                        <Asterisk ref={asteriskLeftRef} strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-[#1e1f1f] mr-5" />
+                        <Asterisk ref={asteriskLeftRef} strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-ink mr-5" />
                         <h1 className="screenshots-title font-script text-5xl md:text-[10rem] lg:text-[12rem] tracking-tight leading-none font-light">
-                            <span className="text-[#1e1f1f]">Screenshots</span>
+                            <span className="text-ink">Screenshots</span>
                         </h1>
-                        <Asterisk ref={asteriskRightRef} strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-[#1e1f1f] ml-5" />
+                        <Asterisk ref={asteriskRightRef} strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-ink ml-5" />
                     </div>
-                    <p className="screenshots-subtitle md:-mt-4 max-w-[16rem] px-3 text-xs md:text-2xl font-bold text-[#1f1d1f] md:max-w-[28rem] text-center">
+                    <p className="screenshots-subtitle md:-mt-4 max-w-[16rem] px-3 text-xs md:text-2xl font-bold text-ink md:max-w-[28rem] text-center">
                         A visual overview of the project&apos;s interface and features
                     </p>
                 </div>
             </div>
 
-            <div className="w-full bg-[#121212] py-8">
+            <div className="w-full bg-page py-8">
                 <div className="w-[98vw] mx-auto flex flex-col gap-8">
                     {screenshots.map((screenshot, index) => (
                         <div key={index} className="screenshot-card relative w-full overflow-hidden bg-[#1a1a1a]">

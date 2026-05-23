@@ -7,7 +7,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import { featuredProjects } from "@/data/projects";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCard from "@/components/projects/ProjectCard";
 
 /**
  * FeaturedProjects - Sélection de projets mis en avant
@@ -92,7 +92,7 @@ export default function FeaturedProjects() {
                     <ProjectCard key={project.id} project={project} animationClassName="fp-card" descriptionClassName="max-w-base text-base" />
                 ))}
             </div>
-                
+
             <div className="flex flex-col items-center mt-16 md:mt-32">
                 <div className="w-[60%] border-t-2 border-dashed border-ink"></div>
                 <Link href="/projects" ref={learnMore} className="flex flex-row items-center gap-3 uppercase text-ink py-2 font-bold text-2xl md:text-4xl">

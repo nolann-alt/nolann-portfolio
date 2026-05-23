@@ -139,9 +139,9 @@ const Hero: React.FC = () => {
     return (
         <section ref={sectionRef} id="hero" className="relative min-h-[85vh] md:min-h-screen flex flex-col justify-center items-center my-24 md:my-0">
             <div className="w-full max-w-[2600px] mx-auto flex flex-col justify-center items-center">
-                <h1 className="titleSection uppercase mb-4 text-center text-2xl md:text-3xl text-[#1f1d1f]">About Me</h1>
+                <h1 className="titleSection uppercase mb-4 text-center text-2xl md:text-3xl text-ink">About Me</h1>
                 <h1 className="titleH1 text-6xl md:text-9xl font-bold text-center mt-0">
-                    Hi there, <br/> I&apos;m Nolann <span className="text-[#1e1f1f]">LESCOP</span>
+                    Hi there, <br/> I&apos;m Nolann <span className="text-ink">LESCOP</span>
                 </h1>
                 <p className="textP my-6 text-lg md:text-2xl text-center max-w-3xl">
                     I&apos;m a student at the IUT in Vannes in the second year of a computer
@@ -150,17 +150,15 @@ const Hero: React.FC = () => {
                 </p>
                 <div className="flex flex-col justify-center items-center mt-14 md:w-[60%] w-[80%]">
                     <div data-loader="line" // data-loader pour cibler l'élément
-                        className="w-full border-t-2 border-dashed border-[#1e1f1f]">
+                        className="w-full border-t-2 border-dashed border-ink">
                     </div>
-                    <a href="/about"
-                       target="_blank" // nouvelle fenêtre
-                       rel="noopener noreferrer"
+                    <a href="/experiences"
                        ref={learnMore}
-                       className="flex flew-row items-center gap-2 uppercase text-[#1f1d1f] py-2 font-bold text-2xl md:text-4xl">
+                       className="flex flew-row items-center gap-2 uppercase text-ink py-2 font-bold text-2xl md:text-4xl">
                         LEARN MORE <MoveRight ref={arrowRef}/>
                     </a>
                     <div data-loader="line" // data-loader pour cibler l'élément
-                        className="w-full border-t-2 border-dashed border-[#1e1f1f] flex flex-coljustify-center">
+                        className="w-full border-t-2 border-dashed border-ink flex flex-coljustify-center">
                     </div>
                 </div>
             </div>

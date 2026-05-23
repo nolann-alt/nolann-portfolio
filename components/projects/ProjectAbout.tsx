@@ -112,7 +112,7 @@ export default function ProjectAbout({
                         ABOUT
                     </h1>
                     <h1 className="font-script text-5xl md:text-[10rem] lg:text-[13rem] tracking-tight leading-none md:pr-10 text-center">
-                        <span className="text-[#1e1f1f]">The Project</span>
+                        <span className="text-ink">The Project</span>
                     </h1>
                 </div>
 
@@ -120,7 +120,7 @@ export default function ProjectAbout({
                     {/* Ligne de séparation supérieure */}
                     <div className="w-full flex">
                         <div className="hidden md:block md:w-1/6"></div>
-                        <div className="bg-line w-full md:w-5/6 border-t border-dashed border-[#1f1d1f]"></div>
+                        <div className="bg-line w-full md:w-5/6 border-t border-dashed border-ink"></div>
                     </div>
 
                     {/* SECTION 1: OVERVIEW */}
@@ -144,7 +144,7 @@ export default function ProjectAbout({
                                         <div className="space-y-5 md:space-y-8">
                                             {technologies.map((tech, index) => (
                                                 <div key={index}>
-                                                    <h3 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-2 text-[#1e1f1f]">
+                                                    <h3 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-2 text-ink">
                                                         {tech.category}
                                                     </h3>
                                                     <div className="flex flex-wrap gap-2">
@@ -160,7 +160,7 @@ export default function ProjectAbout({
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-line w-full border-b border-dashed border-[#1f1d1f]"></div>
+                            <div className="bg-line w-full border-b border-dashed border-ink"></div>
                         </div>
                     </div>
 
@@ -201,7 +201,7 @@ export default function ProjectAbout({
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-line w-full border-b border-dashed border-[#1f1d1f]"></div>
+                            <div className="bg-line w-full border-b border-dashed border-ink"></div>
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,7 @@ function SectionBlock({ title, content }: { title: string; content: string }) {
                         </div>
                     </div>
                 </div>
-                <div className="bg-line w-full border-b border-dashed border-[#1f1d1f]"></div>
+                <div className="bg-line w-full border-b border-dashed border-ink"></div>
             </div>
         </div>
     );

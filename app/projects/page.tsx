@@ -1,4 +1,4 @@
-import AllProjects from "@/components/AllProjects";
+import AllProjects from "@/components/projects/AllProjects";
 
 /**
  * ProjectsPage - Page listant tous les projets

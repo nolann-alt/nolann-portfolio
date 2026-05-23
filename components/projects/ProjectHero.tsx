@@ -8,9 +8,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { BASE_PATH } from "@/lib/constants";
 
-// On fait une interface pour typer les props du composant
-// On récupère récupère les données grâce à getStaticProps dans 
-// la page projet et on les passe au composant ProjectHero
 interface ProjectHeroProps {
   project: {
     image: string;

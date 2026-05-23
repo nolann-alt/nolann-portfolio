@@ -1,9 +1,9 @@
 import { projects, getProjectBySlug, getNextProject, getPreviousProject } from "@/data/projects";
-import ProjectHero from "@/components/ProjectHero";
-import ProjectAbout from "@/components/ProjectAbout";
-import ProjectScreenshots from "@/components/ProjectScreenshots";
-import ProjectNavigation from "@/components/ProjectNavigation";
-import PageEndSection from "@/components/PageEndSection";
+import ProjectHero from "@/components/projects/ProjectHero";
+import ProjectAbout from "@/components/projects/ProjectAbout";
+import ProjectScreenshots from "@/components/projects/ProjectScreenshots";
+import ProjectNavigation from "@/components/projects/ProjectNavigation";
+import PageEndSection from "@/components/shared/PageEndSection";
 
 /**
  * generateStaticParams - Génère les routes statiques des projets
@@ -27,7 +27,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     const previousProject = getPreviousProject(slug);
 
     if (!project) {
-        return <main className="min-h-screen bg-[#121212] flex items-center justify-center"><p className="text-white">Projet non trouvé</p></main>;
+        return <main className="min-h-screen bg-page flex items-center justify-center"><p className="text-white">Projet non trouvé</p></main>;
     }
 
     return (

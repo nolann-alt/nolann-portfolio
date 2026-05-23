@@ -7,8 +7,6 @@ import { Asterisk, Menu, X } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-const BASE_PATH = "/my-portfolio-next.js";
-
 /**
  * Navbar - Barre de navigation principale
  * @description Gère un menu plein écran animé et adapte l'affichage selon la route courante.
@@ -76,7 +74,7 @@ export const Navbar: React.FC = () => {
             </button>
 
             {/* Menu fullscreen */}
-            <section ref={menuPcRef} className={`fixed inset-0 bg-[#1e1f1f] text-[#f4f4f3] mix-blend-normal flex flex-col items-center justify-center transition-all duration-500 ease-in-out z-50 overflow-hidden
+            <section ref={menuPcRef} className={`fixed inset-0 bg-ink text-cream mix-blend-normal flex flex-col items-center justify-center transition-all duration-500 ease-in-out z-50 overflow-hidden
                 ${menuOpen ? "translate-x-0 translate-y-0 pointer-events-auto opacity-100" : "max-md:translate-x-full md:-translate-y-full pointer-events-none opacity-0"}`}>
 
                 <button className="absolute top-5 right-8 md:right-auto btn btn-ghost text-2xl" onClick={() => setMenuOpen(false)}>
@@ -87,27 +85,27 @@ export const Navbar: React.FC = () => {
                 <div className="flex flex-col justify-center w-full mt-14">
                     <div className="flex justify-center items-center gap-6 md:gap-10">
                         <Asterisk size={45} className="star-left opacity-0" />
-                        <h1 className="linkTitre text-[#f4f4f3] text-5xl md:text-9xl font-bold">Portfolio</h1>
+                        <h1 className="linkTitre text-cream text-5xl md:text-9xl font-bold">Portfolio</h1>
                         <Asterisk size={45} className="star-right opacity-0" />
                     </div>
 
                     <div className="flex flex-col justify-center items-center">
                         <h1 className="text-sm font-bold">PAGES</h1>
-                        <div className="menu-line w-[95%] border-t-2 border-dashed border-[#f4f4f3]/60 opacity-70 my-4 mx-0.5"></div>
+                        <div className="menu-line w-[95%] border-t-2 border-dashed border-cream/60 opacity-70 my-4 mx-0.5"></div>
                         <div>
-                            <Link href="/" onClick={() => setMenuOpen(false)} className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">HOME </Link>
+                            <Link href="/" onClick={() => setMenuOpen(false)} className="linkHome opacity-0 text-cream font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">HOME </Link>
                         </div>
                         <div>
-                            <Link href="/about" onClick={() => setMenuOpen(false)} className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">ABOUT ME </Link>
+                            <Link href="/about" onClick={() => setMenuOpen(false)} className="linkHome opacity-0 text-cream font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">ABOUT ME </Link>
                         </div>
                         <div>
-                            <Link href="/experiences" onClick={() => setMenuOpen(false)} className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
+                            <Link href="/experiences" onClick={() => setMenuOpen(false)} className="linkHome opacity-0 text-cream font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
                                 EXPERIENCES
                             </Link>
                         </div>
                         <div>
                             <Link href="/projects" onClick={() => setMenuOpen(false)}
-                                className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
+                                className="linkHome opacity-0 text-cream font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
                                 PROJECTS
                             </Link>
                         </div>
@@ -117,7 +115,7 @@ export const Navbar: React.FC = () => {
 
             <ul className="hidden md:flex justify-end space-x-4">
                 <li>
-                    <a href="#" className="btn btn-ghost text-2xl">
+                    <a href="mailto:nolann.lescop@outlook.com" className="btn btn-ghost text-2xl">
                         Contact
                         <span></span>
                         <span className="w-2.5 h-2.5 rounded-full bg-current"></span>

@@ -1,9 +1,9 @@
 import "./globals.css";
-import Intro from "@/components/Intro";
-import Hero from "@/components/Hero";
-import FeaturedProjects from "@/components/FeaturedProjects";
-import TextParagraph from "@/components/TextParagraph";
-import PageEndSection from "@/components/PageEndSection";
+import Intro from "@/components/home/Intro";
+import Hero from "@/components/home/Hero";
+import FeaturedProjects from "@/components/home/FeaturedProjects";
+import TextParagraph from "@/components/shared/TextParagraph";
+import PageEndSection from "@/components/shared/PageEndSection";
 
 export const metadata = {
     title: "Nolann Lescop Portfolio",
@@ -20,13 +20,13 @@ export default function Home() {
         <div className="relative">
             <Intro />
             <div className="w-[98vw] mx-auto flex justify-between">
-                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
-                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
             </div>
             <Hero />
             <div className="w-[98vw] mx-auto flex justify-between">
-                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
-                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
             </div>
             <FeaturedProjects />
             <TextParagraph />
