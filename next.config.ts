@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   // Avoid slash<->no-slash redirect loops in local/dev with basePath
   skipTrailingSlashRedirect: true,
   // Base path for subfolder deployment
-  basePath: "/my-portfolio-next.js",
+  basePath: "/nolann-portfolio",
   images: {
     // Disable image optimization for static export
     unoptimized: true,

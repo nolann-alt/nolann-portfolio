@@ -1,1 +1,1 @@
-export const BASE_PATH = "/my-portfolio-next.js";
+export const BASE_PATH = "/nolann-portfolio";
