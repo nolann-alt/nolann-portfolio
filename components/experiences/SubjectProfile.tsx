@@ -90,7 +90,7 @@ export default function SubjectProfile() {
                     width={400}
                     height={500}
                     onClick={() => setColored(c => !c)}
-                    className={`subp-photo w-full mt-4 object-cover transition-[filter] duration-500 [@media(hover:hover)]:hover:grayscale-0 ${colored ? "grayscale-0" : "grayscale"}`}
+                    className={`subp-photo photo-hover-color w-full mt-4 object-cover transition-[filter] duration-500 ${colored ? "grayscale-0" : "grayscale"}`}
                 />
             </div>
 

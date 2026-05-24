@@ -12,6 +12,15 @@ html, body {
     overflow-x: hidden;
 }
 
+/* Grayscale → couleur au survol, uniquement sur les appareils avec souris */
+/* On évite la variante arbitraire Tailwind [@media(hover:hover)] qui génère */
+/* du CSS que Turbopack ne sait pas parser correctement */
+@media (hover: hover) {
+    .photo-hover-color:hover {
+        filter: grayscale(0);
+    }
+}
+
 @layer components {
 
     /* Style pour le titre de la page d'accueil */
