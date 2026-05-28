@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fontsource/bebas-neue": "^5.2.7",
+    "@fontsource/bodoni-moda": "^5.2.7",
+    "@fontsource/pinyon-script": "^5.2.8",
     "@tsparticles/all": "^3.9.1",
     "@tsparticles/effect-trail": "^3.9.1",
     "@tsparticles/engine": "^3.9.1",

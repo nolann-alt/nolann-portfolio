@@ -3,18 +3,19 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 type TextParagraphProps = {
     subtitle?: string;
     paragraphs?: string[][];
 };
 
-/**
- * TextParagraph - Bloc de citation/texte animé
- * @description Affiche des lignes de texte avec animation alternée gauche/droite au scroll.
- * @component Client
- */
-export default function TextParagraph({ subtitle = "Thank you for your visit", paragraphs = [["Your time means a lot,", "and I hope you enjoyed", "discovering this portfolio."]] }: TextParagraphProps) {
+export default function TextParagraph({ subtitle, paragraphs }: TextParagraphProps) {
+    const lang = useLang();
+    const t = getDictionary(lang);
+    const resolvedSubtitle = subtitle ?? t.shared.textParagraphSubtitle;
+    const resolvedParagraphs = paragraphs ?? t.shared.textParagraphLines;
     // useRef: référence racine utilisée comme scope des animations GSAP
     const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -41,8 +42,8 @@ export default function TextParagraph({ subtitle = "Thank you for your visit", p
                     <div className="w-2 md:w-4 h-2 md:h-4 bg-ink rounded-full"></div>
                 </div>
                 <div className="w-full max-w-[2200px] flex flex-col items-center text-center self-center mx-auto">
-                    <span className="text-[9px] md:text-2xl uppercase mb-5 md:mb-16 text-ink">{subtitle}</span>
-                    {paragraphs.map((lines, paragraphIndex) => (
+                    <span className="text-[9px] md:text-2xl uppercase mb-5 md:mb-16 text-ink">{resolvedSubtitle}</span>
+                    {resolvedParagraphs.map((lines, paragraphIndex) => (
                         <p key={`paragraph-${paragraphIndex}`} className={`font-bodoni text-3xl md:text-4xl lg:text-[4.5rem] xl:text-[6rem] leading-[1.3] tracking-tighter text-ink flex flex-col items-center text-center md:gap-y-12 lg:gap-y-20 ${paragraphIndex > 0 ? "mt-0 md:mt-16" : ""}`}>
                             {lines.map((line, lineIndex) => (
                                 <span key={`${line}-${lineIndex}`} className="text-paragraph-line block">{line}</span>

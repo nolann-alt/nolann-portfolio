@@ -5,6 +5,8 @@ import { Asterisk } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { BASE_PATH } from "@/lib/constants";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 interface ProjectScreenshotsProps {
     screenshots: string[];
@@ -16,6 +18,8 @@ interface ProjectScreenshotsProps {
  * @component Client
  */
 export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsProps) {
+    const lang = useLang();
+    const t = getDictionary(lang);
     const sectionRef = useRef<HTMLElement>(null);
     const asteriskLeftRef = useRef<SVGSVGElement>(null);
     const asteriskRightRef = useRef<SVGSVGElement>(null);
@@ -66,12 +70,12 @@ export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsPr
                     <div className="flex items-center gap-3 md:gap-4">
                         <Asterisk ref={asteriskLeftRef} strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-ink mr-5" />
                         <h1 className="screenshots-title font-script text-5xl md:text-[10rem] lg:text-[12rem] tracking-tight leading-none font-light">
-                            <span className="text-ink">Screenshots</span>
+                            <span className="text-ink">{t.projects.screenshotsTitle}</span>
                         </h1>
                         <Asterisk ref={asteriskRightRef} strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-ink ml-5" />
                     </div>
                     <p className="screenshots-subtitle md:-mt-4 max-w-[16rem] px-3 text-xs md:text-2xl font-bold text-ink md:max-w-[28rem] text-center">
-                        A visual overview of the project&apos;s interface and features
+                        {t.projects.screenshotsSubtitle}
                     </p>
                 </div>
             </div>

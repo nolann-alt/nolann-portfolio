@@ -3,7 +3,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { formation, workExperiences } from "@/data/experiences";
+import { getFormation, getWorkExperiences } from "@/data/experiences";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 /**
  * FormationTimeline - Timeline formation + expériences (colonne centrale)
@@ -12,6 +14,11 @@ import { formation, workExperiences } from "@/data/experiences";
  * @component Client (animations GSAP + ScrollTrigger)
  */
 export default function FormationTimeline() {
+    const lang = useLang();
+    const t = getDictionary(lang).experiences;
+    const formation = getFormation(lang);
+    const workExperiences = getWorkExperiences(lang);
+
     const ref = useRef<HTMLDivElement>(null);
 
     // useEffect : s'exécute une seule fois au montage ([] vide)
@@ -58,7 +65,7 @@ export default function FormationTimeline() {
 
             {/* ── EDUCATION ── */}
             <div className="ft-slide mb-3">
-                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em]">Education</span>
+                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em]">{t.educationLabel}</span>
             </div>
             <div className="ft-line w-full border-t border-dashed border-ink" />
 
@@ -94,7 +101,7 @@ export default function FormationTimeline() {
 
             {/* ── EXPERIENCE ── */}
             <div className="ft-slide mt-14 mb-3">
-                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em]">Experience</span>
+                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em]">{t.experienceLabel}</span>
             </div>
             <div className="ft-line w-full border-t border-dashed border-ink" />
 

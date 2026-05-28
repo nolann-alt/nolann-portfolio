@@ -6,8 +6,10 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
-import { featuredProjects } from "@/data/projects";
+import { getFeaturedProjects } from "@/data/projects";
 import ProjectCard from "@/components/projects/ProjectCard";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 /**
  * FeaturedProjects - Sélection de projets mis en avant
@@ -15,6 +17,9 @@ import ProjectCard from "@/components/projects/ProjectCard";
  * @component Client
  */
 export default function FeaturedProjects() {
+    const lang = useLang();
+    const t = getDictionary(lang);
+
     // useRef: pointe le lien "More projects" pour appliquer une animation SplitText au hover
     const learnMore = useRef<HTMLAnchorElement | null>(null);
 
@@ -76,28 +81,28 @@ export default function FeaturedProjects() {
                     <div className="flex items-center gap-3 md:gap-4">
                         <Asterisk strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-ink mr-5" />
                         <h1 className="fp-featured-title font-script text-5xl md:text-[7rem] lg:text-[10rem] tracking-tight leading-none font-light">
-                            <span className="text-ink">Featured</span>
+                            <span className="text-ink">{t.home.featuredTitle1}</span>
                         </h1>
                         <Asterisk strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-ink ml-5" />
                     </div>
                     <p className="fp-subtitle md:-mt-4 max-w-[16rem] px-3 text-xs md:text-lg font-bold text-ink md:max-w-[28rem] text-center">
-                        A selection of recent projects illustrating my career in the field of computer science
+                        {t.home.featuredSubtitle}
                     </p>
                 </div>
-                <h1 className="fp-projects-title font-sans text-7xl md:text-[13rem] lg:text-[22rem] leading-none uppercase font-black tracking-wide md:ml-auto">Projects</h1>
+                <h1 className="fp-projects-title font-sans text-7xl md:text-[13rem] lg:text-[22rem] leading-none uppercase font-black tracking-wide md:ml-auto">{t.home.featuredTitle2}</h1>
             </div>
 
             <div className="grid gap-2 md:gap-6 sm:grid-cols-2">
-                {featuredProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} animationClassName="fp-card" descriptionClassName="max-w-base text-base" />
+                {getFeaturedProjects(lang).map((project) => (
+                    <ProjectCard key={project.id} project={project} animationClassName="fp-card" descriptionClassName="max-w-base text-base" lang={lang} />
                 ))}
             </div>
 
             <div className="flex flex-col items-center mt-16 md:mt-32">
                 <div className="w-[60%] border-t-2 border-dashed border-ink"></div>
-                <Link href="/projects" ref={learnMore} className="flex flex-row items-center gap-3 uppercase text-ink py-2 font-bold text-2xl md:text-4xl">
-                    <span>More</span>
-                    <span className="ml-1">projects</span>
+                <Link href={`/${lang}/projects`} ref={learnMore} className="flex flex-row items-center gap-3 uppercase text-ink py-2 font-bold text-2xl md:text-4xl">
+                    <span>{t.home.moreProjects}</span>
+                    <span className="ml-1">{t.home.moreProjectsLabel}</span>
                     <span className="ml-1 fp-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                 </Link>
                 <div className="w-[60%] border-t-2 border-dashed border-ink flex flex-col justify-center"></div>

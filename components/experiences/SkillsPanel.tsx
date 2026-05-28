@@ -3,7 +3,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { skillGroups, softSkills } from "@/data/experiences";
+import { getSkillGroups, getSoftSkills } from "@/data/experiences";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 /**
  * SkillsPanel - Panneau de compétences (colonne droite)
@@ -12,6 +14,11 @@ import { skillGroups, softSkills } from "@/data/experiences";
  * @component Client (animations GSAP + ScrollTrigger)
  */
 export default function SkillsPanel() {
+    const lang = useLang();
+    const t = getDictionary(lang).experiences;
+    const skillGroups = getSkillGroups(lang);
+    const softSkills = getSoftSkills(lang);
+
     const ref = useRef<HTMLDivElement>(null);
 
     // useEffect avec [] : exécuté une seule fois après le montage
@@ -53,7 +60,7 @@ export default function SkillsPanel() {
         <aside ref={ref} className="flex flex-col min-w-0 w-full text-black">
             <div className="sp-slide mb-3">
                 <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em]">
-                    Equipment Inventory
+                    {t.skillsTitle}
                 </span>
             </div>
             <div className="sp-line w-full border-t border-dashed border-ink" />

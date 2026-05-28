@@ -7,6 +7,8 @@ import { Asterisk } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { BASE_PATH } from "@/lib/constants";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 interface ProjectHeroProps {
   project: {
@@ -26,6 +28,8 @@ interface ProjectHeroProps {
  * @component Client
  */
 export default function ProjectHero({ project, nextProject, previousProject }: ProjectHeroProps) {
+    const lang = useLang();
+    const t = getDictionary(lang);
     // Refs pour les animations GSAP
     const containerRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
@@ -128,21 +132,21 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
                     />
                     <nav ref={buttonsRef} className="absolute bottom-2 left-0 right-0 flex justify-between items-center px-2 md:px-8">
                         {previousProject ? (
-                            <Link href={`/projects/${previousProject.slug}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference">
-                                <span>Back</span>
+                            <Link href={`/${lang}/projects/${previousProject.slug}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference">
+                                <span>{t.projects.heroBack}</span>
                             </Link>
                         ) : (
-                            <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">Back</span>
+                            <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">{t.projects.heroBack}</span>
                         )}
-                        <Link href="/" className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference">
-                            <span>Home</span>
+                        <Link href={`/${lang}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference">
+                            <span>{t.projects.heroHome}</span>
                         </Link>
                         {nextProject ? (
-                            <Link href={`/projects/${nextProject.slug}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference">
-                                <span>Next</span>
+                            <Link href={`/${lang}/projects/${nextProject.slug}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference">
+                                <span>{t.projects.heroNext}</span>
                             </Link>
                         ) : (
-                            <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">Next</span>
+                            <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">{t.projects.heroNext}</span>
                         )}
                     </nav>
                 </div>
@@ -166,7 +170,7 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
 
                 <div className="text-center mt-3">
                     <span ref={yearRef} className="text-lg md:text-xl text-gray-900 uppercase">
-                        Year: {project.year}
+                        {t.projects.heroYear} : {project.year}
                     </span>
                 </div>
 

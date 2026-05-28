@@ -1,6 +1,23 @@
+/* Polices auto-hébergées via Fontsource — compatible Turbopack + output:export */
+@import '@fontsource/pinyon-script';
+@import '@fontsource/bebas-neue';
+@import '@fontsource/bodoni-moda/800.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Les variables sont sur body (pas :root) pour reproduire le comportement de next/font/google :
+   - Tailwind génère "html { font-family: var(--font-sans) }" depuis le preflight
+   - Mais --font-sans n'est pas défini sur <html>, donc html tombe sur la police
+     par défaut du navigateur (serif = Times New Roman)
+   - Les éléments avec .font-sans / .font-script / .font-bodoni héritent des variables
+     depuis body → reçoivent bien Bebas Neue / Pinyon Script / Bodoni Moda */
+body {
+    --font-script: 'Pinyon Script', cursive;
+    --font-sans: 'Bebas Neue', sans-serif;
+    --font-bodoni: 'Bodoni Moda', serif;
+}
 
 /* tes styles globaux */
 html {

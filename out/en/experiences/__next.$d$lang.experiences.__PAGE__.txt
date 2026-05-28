@@ -1,0 +1,10 @@
+1:"$Sreact.fragment"
+2:I[81328,["/nolann-portfolio/_next/static/chunks/bced5b90c5d06ec0.js","/nolann-portfolio/_next/static/chunks/1435eff63e374ccf.js","/nolann-portfolio/_next/static/chunks/eaff35add14b669f.js"],"default"]
+3:I[8195,["/nolann-portfolio/_next/static/chunks/bced5b90c5d06ec0.js","/nolann-portfolio/_next/static/chunks/1435eff63e374ccf.js","/nolann-portfolio/_next/static/chunks/eaff35add14b669f.js"],"default"]
+4:I[58436,["/nolann-portfolio/_next/static/chunks/bced5b90c5d06ec0.js","/nolann-portfolio/_next/static/chunks/1435eff63e374ccf.js","/nolann-portfolio/_next/static/chunks/eaff35add14b669f.js"],"default"]
+5:I[60671,["/nolann-portfolio/_next/static/chunks/bced5b90c5d06ec0.js","/nolann-portfolio/_next/static/chunks/1435eff63e374ccf.js","/nolann-portfolio/_next/static/chunks/eaff35add14b669f.js"],"default"]
+6:I[75410,["/nolann-portfolio/_next/static/chunks/bced5b90c5d06ec0.js","/nolann-portfolio/_next/static/chunks/1435eff63e374ccf.js","/nolann-portfolio/_next/static/chunks/eaff35add14b669f.js"],"default"]
+7:I[97367,["/nolann-portfolio/_next/static/chunks/ff1a16fafef87110.js","/nolann-portfolio/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+0:{"buildId":"ETHEPUm4HYIHe46OhCLBt","rsc":["$","$1","c",{"children":[["$","section",null,{"className":"relative overflow-hidden","children":[["$","$L2",null,{}],["$","div",null,{"className":"w-[98vw] mx-auto px-4 md:px-8 md:py-5","children":["$","div",null,{"className":"flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(290px,330px)_1fr_minmax(260px,300px)] lg:gap-8 xl:gap-12","children":[["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}]]}]}],["$","div",null,{"className":"w-full h-28 md:h-48"}],["$","$L6",null,{"title":"Let's work together!","ctaLabel":"CONTACT ME"}]]}],[["$","script","script-0",{"src":"/nolann-portfolio/_next/static/chunks/eaff35add14b669f.js","async":true}]],["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]]}],"loading":null,"isPartial":false}
+9:null

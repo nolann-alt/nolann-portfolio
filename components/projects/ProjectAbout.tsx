@@ -4,6 +4,8 @@ import { useRef, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 // Types des propriétés
 interface ProjectTech {
@@ -34,6 +36,9 @@ export default function ProjectAbout({
     technologies,
     links
 }: AboutProjectProps) {
+    const lang = useLang();
+    const t = getDictionary(lang);
+
     // Référence au conteneur pour les animations GSAP
     const sectionRef = useRef<HTMLElement>(null);
 
@@ -109,10 +114,10 @@ export default function ProjectAbout({
                 {/* Titre "ABOUT THE PROJECT" */}
                 <div className="flex flex-col md:flex-row items-center justify-center md:justify-between w-full z-10 mb-5 md:mb-8 whitespace-nowrap px-0.5 md:px-1">
                     <h1 className="bg-title-my font-sans text-7xl md:text-[20rem] lg:text-[24rem] leading-none uppercase tracking-wide md:-ml-10 text-center">
-                        ABOUT
+                        {t.projects.aboutTitle1}
                     </h1>
                     <h1 className="font-script text-5xl md:text-[10rem] lg:text-[13rem] tracking-tight leading-none md:pr-10 text-center">
-                        <span className="text-ink">The Project</span>
+                        <span className="text-ink">{t.projects.aboutTitle2}</span>
                     </h1>
                 </div>
 
@@ -124,10 +129,10 @@ export default function ProjectAbout({
                     </div>
 
                     {/* SECTION 1: OVERVIEW */}
-                    <SectionBlock title="Overview" content={overview} />
+                    <SectionBlock title={t.projects.aboutOverview} content={overview} />
 
                     {/* SECTION 2: CORE FEATURES */}
-                    <SectionBlock content={coreFeatures} title="Core Features" />
+                    <SectionBlock content={coreFeatures} title={t.projects.aboutCoreFeatures} />
 
                     {/* SECTION 3: TECHNOLOGIES */}
                     <div className="flex flex-col md:flex-row w-full gap-8 md:gap-4">
@@ -136,7 +141,7 @@ export default function ProjectAbout({
                             <div className="flex flex-col md:flex-row">
                                 <div className="md:w-1/3 flex flex-col items-start px-4 md:pl-0 md:pr-10 py-6 md:py-12">
                                     <h2 className="bg-text-slide text-xs md:text-sm font-bold uppercase tracking-[0.25em] mb-3 md:mb-8">
-                                        Technologies
+                                        {t.projects.aboutTechnologies}
                                     </h2>
                                 </div>
                                 <div className="w-full md:w-2/3 flex justify-end pt-4 md:pt-12 pb-0">
@@ -171,7 +176,7 @@ export default function ProjectAbout({
                             <div className="flex flex-col md:flex-row">
                                 <div className="md:w-1/3 flex flex-col items-start px-4 md:pl-0 md:pr-10 py-6 md:py-12">
                                     <h2 className="bg-text-slide text-xs md:text-sm font-bold uppercase tracking-[0.25em] mb-3 md:mb-8">
-                                        Links
+                                        {t.projects.aboutLinks}
                                     </h2>
                                 </div>
                                 <div className="w-full md:w-2/3 flex justify-end pt-4 md:pt-12 pb-0">
@@ -184,7 +189,7 @@ export default function ProjectAbout({
                                                     rel="noopener noreferrer"
                                                     className="text-base md:text-xl lg:text-2xl font-medium hover:underline flex items-center gap-2"
                                                 >
-                                                    • Demo <ArrowUpRight className="w-4 h-4" />
+                                                    • {t.projects.aboutDemo} <ArrowUpRight className="w-4 h-4" />
                                                 </a>
                                             )}
                                             {links.github && (

@@ -7,6 +7,8 @@ import { ChevronRight, ChevronLeft } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { BASE_PATH } from "@/lib/constants";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 interface ProjectNavigationProps {
     nextProject: { slug: string; title: string; image: string } | null;
@@ -19,6 +21,8 @@ interface ProjectNavigationProps {
  * @component Client
  */
 export default function ProjectNavigation({ nextProject, previousProject }: ProjectNavigationProps) {
+    const lang = useLang();
+    const t = getDictionary(lang);
     const imageContainerRef = useRef<HTMLDivElement>(null);
 
     // Retirer le grayscale quand l'image est visible dans le viewport
@@ -54,40 +58,40 @@ export default function ProjectNavigation({ nextProject, previousProject }: Proj
                 <div className="w-[70%] md:w-[60%] lg:w-[50%]">
                     {/* Projet suivant */}
                     {nextProject ? (
-                        <Link href={`/projects/${nextProject.slug}`} className="flex justify-between items-end mb-2 group">
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">Next Project</span>
+                        <Link href={`/${lang}/projects/${nextProject.slug}`} className="flex justify-between items-end mb-2 group">
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">{t.projects.navNext}</span>
                             <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-ink group-hover:translate-x-1 transition-transform" />
                         </Link>
                     ) : (
                         <div className="flex justify-between items-end mb-2 opacity-40">
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">Next Project</span>
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">{t.projects.navNext}</span>
                             <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-ink" />
                         </div>
                     )}
 
                     {/* Image centrale */}
                     {nextProject ? (
-                        <Link href={`/projects/${nextProject.slug}`} className="block">
+                        <Link href={`/${lang}/projects/${nextProject.slug}`} className="block">
                             <div ref={imageContainerRef} className="relative aspect-video overflow-hidden grayscale transition-all duration-500">
                                 <Image src={`${BASE_PATH}${nextProject.image}`} alt={nextProject.title} fill className="object-cover" />
                             </div>
                         </Link>
                     ) : (
                         <div className="relative aspect-video bg-[#e5e5e0] flex items-center justify-center">
-                            <span className="text-ink font-bold uppercase text-sm md:text-3xl">End of projects</span>
+                            <span className="text-ink font-bold uppercase text-sm md:text-3xl">{t.projects.navEnd}</span>
                         </div>
                     )}
 
                     {/* Projet précédent */}
                     {previousProject ? (
-                        <Link href={`/projects/${previousProject.slug}`} className="flex justify-between items-start mt-2 group">
+                        <Link href={`/${lang}/projects/${previousProject.slug}`} className="flex justify-between items-start mt-2 group">
                             <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-ink group-hover:-translate-x-1 transition-transform" />
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">Previous Project</span>
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">{t.projects.navPrevious}</span>
                         </Link>
                     ) : (
                         <div className="flex justify-between items-start mt-2 opacity-40">
                             <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-ink" />
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">Previous Project</span>
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-ink">{t.projects.navPrevious}</span>
                         </div>
                     )}
                 </div>

@@ -4,6 +4,8 @@ import {useEffect, useRef} from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 /**
  * Hero - Section d'introduction
@@ -11,6 +13,8 @@ import SplitText from "gsap/SplitText";
  * @description Affiche une introduction avec animations d'entrée pour le titre, le texte et le bouton "Learn More" qui réagit au survol.
  */
 const Hero: React.FC = () => {
+    const lang = useLang();
+    const t = getDictionary(lang);
 
     const sectionRef = useRef<HTMLElement | null>(null);
     const learnMore = useRef<HTMLAnchorElement | null>(null);
@@ -77,7 +81,9 @@ const Hero: React.FC = () => {
                 }
             );
 
-            const split = new SplitText(learnMore.current, { type: "chars" });
+            // "chars,words" : GSAP crée d'abord des wrappers de mots (qui gardent les espaces),
+            // puis découpe chaque mot en caractères individuels pour l'animation
+            const split = new SplitText(learnMore.current, { type: "chars,words" });
             const chars = split.chars;
             if(!chars) return;
 
@@ -139,23 +145,24 @@ const Hero: React.FC = () => {
     return (
         <section ref={sectionRef} id="hero" className="relative min-h-[85vh] md:min-h-screen flex flex-col justify-center items-center my-24 md:my-0">
             <div className="w-full max-w-[2600px] mx-auto flex flex-col justify-center items-center">
-                <h1 className="titleSection uppercase mb-4 text-center text-2xl md:text-3xl text-ink">About Me</h1>
+                <h1 className="titleSection uppercase mb-4 text-center text-2xl md:text-3xl text-ink">{t.nav.about}</h1>
+                {/* Ligne 1 : "Hi there, I'm " | "Bonjour, je suis " */}
+                {/* Ligne 2 : "Nolann LESCOP" avec la couleur accentuée */}
                 <h1 className="titleH1 text-6xl md:text-9xl font-bold text-center mt-0">
-                    Hi there, <br/> I&apos;m Nolann <span className="text-ink">LESCOP</span>
+                    {t.home.greeting.split("Nolann")[0]}<br/>
+                    Nolann <span className="text-ink">LESCOP</span>
                 </h1>
                 <p className="textP my-6 text-lg md:text-2xl text-center max-w-3xl">
-                    I&apos;m a student at the IUT in Vannes in the second year of a computer
-                    science degree, and I&apos;m looking for an internship to apply
-                    my knowledge and develop my skills in the IT field.
+                    {t.home.bio}
                 </p>
                 <div className="flex flex-col justify-center items-center mt-14 md:w-[60%] w-[80%]">
-                    <div data-loader="line" // data-loader pour cibler l'élément
+                    <div data-loader="line"
                         className="w-full border-t-2 border-dashed border-ink">
                     </div>
-                    <a href="/experiences"
+                    <a href={`/${lang}/experiences`}
                        ref={learnMore}
-                       className="flex flew-row items-center gap-2 uppercase text-ink py-2 font-bold text-2xl md:text-4xl">
-                        LEARN MORE <MoveRight ref={arrowRef}/>
+                       className="flex flex-row items-center gap-2 uppercase text-ink py-2 font-bold text-2xl md:text-4xl">
+                        {t.home.cta} <MoveRight ref={arrowRef}/>
                     </a>
                     <div data-loader="line" // data-loader pour cibler l'élément
                         className="w-full border-t-2 border-dashed border-ink flex flex-coljustify-center">

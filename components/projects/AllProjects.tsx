@@ -4,8 +4,10 @@ import { Asterisk } from "lucide-react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/data/projects";
 import ProjectCard from "@/components/projects/ProjectCard";
+import { useLang } from "@/lib/i18n/useLang";
+import { getDictionary } from "@/lib/i18n";
 
 /**
  * AllProjects - Composant affichant tous les projets
@@ -13,6 +15,8 @@ import ProjectCard from "@/components/projects/ProjectCard";
  * @component Client
  */
 export default function AllProjects() {
+    const lang = useLang();
+    const t = getDictionary(lang);
     const sectionRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
@@ -47,17 +51,17 @@ export default function AllProjects() {
                     <div className="flex items-center gap-3 md:gap-4">
                         <Asterisk strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-ink mr-5" />
                         <h1 className="ap-featured-title font-script text-5xl md:text-[7rem] lg:text-[10rem] tracking-tight leading-none font-light">
-                            <span className="text-ink">All</span>
+                            <span className="text-ink">{t.projects.allTitle1}</span>
                         </h1>
                         <Asterisk strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-ink ml-5" />
                     </div>
                 </div>
-                <h1 className="ap-projects-title font-sans text-7xl md:text-[13rem] lg:text-[22rem] leading-none uppercase font-black tracking-wide md:ml-auto">Projects</h1>
+                <h1 className="ap-projects-title font-sans text-7xl md:text-[13rem] lg:text-[22rem] leading-none uppercase font-black tracking-wide md:ml-auto">{t.projects.allTitle2}</h1>
             </div>
 
             <div className="grid gap-2 md:gap-6 sm:grid-cols-2">
-                {projects.map((project) => (
-                    <ProjectCard key={project.id} project={project} animationClassName="ap-card" descriptionClassName="max-w-xs text-sm" />
+                {getProjects(lang).map((project) => (
+                    <ProjectCard key={project.id} project={project} animationClassName="ap-card" descriptionClassName="max-w-xs text-sm" lang={lang} />
                 ))}
             </div>
         </section>
