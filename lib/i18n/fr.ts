@@ -71,7 +71,7 @@ export const fr: Dictionary = {
         ],
     },
     experiences: {
-        heroScriptWord: "My",
+        heroScriptWord: "Mon",
         heroSansWord: "Expériences",
         heroSubtitle: "Formation, expériences & compétences",
         profileLabel: "Profil",
@@ -85,7 +85,7 @@ export const fr: Dictionary = {
         profileLang2Value: "EN (B2)",
         profileAvailabilityLabel: "Disponibilité",
         profileAvailabilityValue: "Ouvert aux opportunités",
-        profileAvailabilityDetail: "Recherche stage / alternance 2026",
+        profileAvailabilityDetail: "Recherche stage 2026",
         educationLabel: "Formation",
         experienceLabel: "Expériences",
         skillsTitle: "Compétences",

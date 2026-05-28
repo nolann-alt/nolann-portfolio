@@ -81,7 +81,7 @@ export const en = {
         profileLang2Value: "EN (B2)",
         profileAvailabilityLabel: "Availability",
         profileAvailabilityValue: "Open to Work",
-        profileAvailabilityDetail: "Looking for internship / work-study 2026",
+        profileAvailabilityDetail: "Looking for internship 2026",
         educationLabel: "Education",
         experienceLabel: "Experience",
         skillsTitle: "Equipment Inventory",
