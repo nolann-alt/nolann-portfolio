@@ -287,8 +287,8 @@ const projectsBase: ProjectBase[] = [
             "/projects/screenshots/Old_Website/old_portfolio_4.png",
             "/projects/screenshots/Old_Website/old_portfolio_5.png",
             "/projects/screenshots/Old_Website/old_portfolio_6.png",
-            "/projects/screenshots/Old_Website/old-portfolio_7.png",
-            "/projects/screenshots/Old_Website/old-portfolio_8.png",
+            "/projects/screenshots/Old_Website/old_portfolio_7.png",
+            "/projects/screenshots/Old_Website/old_portfolio_8.png",
         ],
     },
     {
