@@ -1,5 +1,6 @@
 "use client";
 import {MoveRight} from "lucide-react";
+import Link from "next/link";
 import {useEffect, useRef} from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -159,11 +160,9 @@ const Hero: React.FC = () => {
                     <div data-loader="line"
                         className="w-full border-t-2 border-dashed border-ink">
                     </div>
-                    <a href={`/${lang}/experiences`}
-                       ref={learnMore}
-                       className="flex flex-row items-center gap-2 uppercase text-ink py-2 font-bold text-2xl md:text-4xl">
+                    <Link ref={learnMore} href={`/${lang}/experiences`} className="learnmore flex flex-row items-center gap-2 uppercase text-ink py-2 font-bold text-2xl md:text-4xl">
                         {t.home.cta} <MoveRight ref={arrowRef}/>
-                    </a>
+                    </Link>
                     <div data-loader="line" // data-loader pour cibler l'élément
                         className="w-full border-t-2 border-dashed border-ink flex flex-coljustify-center">
                     </div>

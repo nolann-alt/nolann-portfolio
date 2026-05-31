@@ -34,6 +34,11 @@ export default function AllProjects() {
                 scrollTrigger: { trigger: ".ap-projects-title", start: "top 80%", toggleActions: "restart reverse restart reverse" }
             });
 
+            gsap.from(".ap-subtitle", {
+                y: 20, opacity: 0, duration: 0.6, ease: "power3.out", delay: 0.1,
+                scrollTrigger: { trigger: ".ap-subtitle", start: "top 85%", toggleActions: "restart reverse restart reverse" }
+            });
+
             // Cartes: reveal de haut en bas avec stagger
             gsap.fromTo(".ap-card", { clipPath: "inset(0 0 100% 0)", y: -20, opacity: 0 }, {
                 clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 1.1, ease: "power3.out", delay: 0.2, stagger: { each: 0.16 },
@@ -55,6 +60,9 @@ export default function AllProjects() {
                         </h1>
                         <Asterisk strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-ink ml-5" />
                     </div>
+                    <p className="ap-subtitle md:-mt-4 max-w-[16rem] px-3 text-xs md:text-lg font-bold text-ink md:max-w-[28rem] text-center">
+                        {t.projects.subtitle}
+                    </p>
                 </div>
                 <h1 className="ap-projects-title font-sans text-7xl md:text-[13rem] lg:text-[22rem] leading-none uppercase font-black tracking-wide md:ml-auto">{t.projects.allTitle2}</h1>
             </div>

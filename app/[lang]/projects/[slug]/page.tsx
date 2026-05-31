@@ -42,7 +42,7 @@ export default async function ProjectDetailPage({
                     overview={project.overview}
                     coreFeatures={project.coreFeatures}
                     technologies={project.technologies || []}
-                    links={{ demo: project.demoLink, github: project.repoLink }}
+                    links={{ demo: project.demoLink, github: project.repoLink, notion: project.notion }}
                 />
             )}
             {project.screenshots && project.screenshots.length > 0 && (

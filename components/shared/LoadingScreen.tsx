@@ -148,8 +148,8 @@ export default function LoadingScreen() {
             {/* ── Label gauche ── */}
             <div ref={leftRef} className="absolute inset-y-0 left-8 md:left-14 flex items-center opacity-0">
                 <div className="flex flex-col gap-1">
-                    <span className="text-cream/50 text-[10px] md:text-sm tracking-[0.3em] font-sans">( 20</span>
-                    <span className="text-cream text-[10px] md:text-sm tracking-[0.25em] font-bold uppercase">
+                    <span className="text-cream/50 text-[10px] md:text-sm tracking-widest md:tracking-[0.3em] font-sans">( 20</span>
+                    <span className="text-cream text-[10px] md:text-sm tracking-widest md:tracking-[0.25em] font-bold uppercase">
                         Nolann Lescop
                     </span>
                 </div>
@@ -157,12 +157,12 @@ export default function LoadingScreen() {
 
             {/* ── Cercle SVG + compteur ── */}
             <div ref={circleWrapRef} className="absolute inset-0 flex items-center justify-center opacity-0">
-                <div className="relative flex items-center justify-center w-[200px] h-[200px] md:w-[260px] md:h-[260px]">
+                <div className="relative flex items-center justify-center w-[100px] h-[100px] md:w-[260px] md:h-[260px]">
                     <svg viewBox="0 0 260 260" className="absolute inset-0 w-full h-full -rotate-90">
                         <circle cx="130" cy="130" r={115} fill="none" stroke="white" strokeWidth="0.75" opacity="0.15" />
                         <circle ref={circleRef} cx="130" cy="130" r={115} fill="none" stroke="white" strokeWidth="0.75" />
                     </svg>
-                    <span ref={counterRef} className="font-script text-cream text-5xl md:text-6xl select-none">
+                    <span ref={counterRef} className="font-script text-cream text-3xl md:text-6xl select-none">
                         0%
                     </span>
                 </div>
@@ -171,8 +171,8 @@ export default function LoadingScreen() {
             {/* ── Label droite ── */}
             <div ref={rightRef} className="absolute inset-y-0 right-8 md:right-14 flex items-center opacity-0">
                 <div className="flex flex-col gap-1 items-end">
-                    <span className="text-cream/50 text-[10px] md:text-sm tracking-[0.3em] font-sans">26 )</span>
-                    <span className="text-cream text-[10px] md:text-sm tracking-[0.25em] font-bold uppercase">
+                    <span className="text-cream/50 text-[10px] md:text-sm tracking-widest md:tracking-[0.3em] font-sans">26 )</span>
+                    <span className="text-cream text-[10px] md:text-sm tracking-widest md:tracking-[0.25em] font-bold uppercase">
                         Portfolio
                     </span>
                 </div>

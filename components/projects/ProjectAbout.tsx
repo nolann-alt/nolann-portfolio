@@ -16,6 +16,7 @@ interface ProjectTech {
 interface ProjectLinks {
     demo?: string;
     github?: string;
+    notion?: string;
 }
 
 interface AboutProjectProps {
@@ -200,6 +201,16 @@ export default function ProjectAbout({
                                                     className="text-base md:text-xl lg:text-2xl font-medium hover:underline flex items-center gap-2"
                                                 >
                                                     • GitHub <ArrowUpRight className="w-4 h-4" />
+                                                </a>
+                                            )}
+                                            {links.notion && (
+                                                <a
+                                                    href={links.notion}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-base md:text-xl lg:text-2xl font-medium hover:underline flex items-center gap-2"
+                                                >
+                                                    • Notion <ArrowUpRight className="w-4 h-4" />
                                                 </a>
                                             )}
                                         </div>

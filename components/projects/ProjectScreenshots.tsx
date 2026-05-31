@@ -4,12 +4,14 @@ import { useEffect, useRef } from "react";
 import { Asterisk } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Image from "next/image";
 import { BASE_PATH } from "@/lib/constants";
 import { useLang } from "@/lib/i18n/useLang";
 import { getDictionary } from "@/lib/i18n";
+import type { ScreenshotItem } from "@/data/projects";
 
 interface ProjectScreenshotsProps {
-    screenshots: string[];
+    screenshots: ScreenshotItem[];
 }
 
 /**
@@ -82,11 +84,24 @@ export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsPr
 
             <div className="w-full bg-page py-8">
                 <div className="w-[98vw] mx-auto flex flex-col gap-8">
-                    {screenshots.map((screenshot, index) => (
-                        <div key={index} className="screenshot-card relative w-full overflow-hidden bg-[#1a1a1a]">
-                            <img src={`${BASE_PATH}${screenshot}`} alt={`Screenshot ${index + 1}`} className="w-full h-auto max-h-[70vh] object-contain" />
-                        </div>
-                    ))}
+                    {screenshots.map((item, index) =>
+                        // Cas 1 : string → image pleine largeur (comportement d'origine)
+                        typeof item === "string" ? (
+                            <div key={index} className="screenshot-card relative w-full overflow-hidden bg-[#1a1a1a]">
+                                <Image src={`${BASE_PATH}${item}`} alt={`Screenshot ${index + 1}`} width={0} height={0} sizes="98vw" className="w-full h-auto max-h-[70vh] object-contain" />
+                            </div>
+                        ) : (
+                            // Cas 2 : string[]
+                            <div key={index} className="screenshot-card flex flex-row flex-wrap justify-center gap-3 md:gap-5 w-full bg-[#1a1a1a] p-6 md:p-10">
+                                {item.map((screenshot, i) => (
+                            
+                                    <div key={i} className="w-[90vw] md:w-[20vw] min-w-[80px] shrink-0 overflow-hidden">
+                                        <Image src={`${BASE_PATH}${screenshot}`} alt={`Screenshot ${index + 1}.${i + 1}`} width={0} height={0} sizes="10vw" className="w-full h-auto object-contain shadow-lg" />
+                                    </div>
+                                ))}
+                            </div>
+                        )
+                    )}
                 </div>
             </div>
         </section>

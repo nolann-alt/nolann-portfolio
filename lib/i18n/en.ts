@@ -82,6 +82,7 @@ export const en = {
         profileAvailabilityLabel: "Availability",
         profileAvailabilityValue: "Open to Work",
         profileAvailabilityDetail: "Looking for internship 2026",
+        profileCvLabel: "Download my CV",
         educationLabel: "Education",
         experienceLabel: "Experience",
         skillsTitle: "Equipment Inventory",
@@ -89,6 +90,7 @@ export const en = {
     projects: {
         allTitle1: "All",
         allTitle2: "Projects",
+        subtitle: "A complete overview of my projects, showcasing my skills and experiences in computer science",
         heroBack: "Back",
         heroHome: "Home",
         heroNext: "Next",

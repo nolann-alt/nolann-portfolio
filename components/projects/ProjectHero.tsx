@@ -13,6 +13,7 @@ import { getDictionary } from "@/lib/i18n";
 interface ProjectHeroProps {
   project: {
     image: string;
+    heroImage?: string;
     title: string;
     shortDescription: string;
     year: number;
@@ -124,29 +125,32 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
             <section className="relative w-full px-2 pt-2">
                 <div ref={imageRef} className="relative w-full h-[calc(60vh-16px)] md:h-[calc(75vh-16px)] overflow-hidden">
                     <Image
-                        src={`${BASE_PATH}${project.image}`}
+                        src={`${BASE_PATH}${project.heroImage ?? project.image}`}
                         alt={`${project.title} - Project showcase`}
                         fill
                         className="object-cover"
                         priority
                     />
+                    {/* Dégradé sombre en bas : garantit que les boutons restent lisibles
+                        quelle que soit la couleur de l'image (clair, blanc, coloré…) */}
+                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
                     <nav ref={buttonsRef} className="absolute bottom-2 left-0 right-0 flex justify-between items-center px-2 md:px-8">
                         {previousProject ? (
-                            <Link href={`/${lang}/projects/${previousProject.slug}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference">
+                            <Link href={`/${lang}/projects/${previousProject.slug}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold drop-shadow-md">
                                 <span>{t.projects.heroBack}</span>
                             </Link>
                         ) : (
-                            <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">{t.projects.heroBack}</span>
+                            <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold">{t.projects.heroBack}</span>
                         )}
-                        <Link href={`/${lang}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference">
+                        <Link href={`/${lang}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold drop-shadow-md">
                             <span>{t.projects.heroHome}</span>
                         </Link>
                         {nextProject ? (
-                            <Link href={`/${lang}/projects/${nextProject.slug}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference">
+                            <Link href={`/${lang}/projects/${nextProject.slug}`} className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold drop-shadow-md">
                                 <span>{t.projects.heroNext}</span>
                             </Link>
                         ) : (
-                            <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">{t.projects.heroNext}</span>
+                            <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold">{t.projects.heroNext}</span>
                         )}
                     </nav>
                 </div>

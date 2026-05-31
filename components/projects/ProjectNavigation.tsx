@@ -4,8 +4,8 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+// gsap et ScrollTrigger supprimés ici : remplacés par Intersection Observer natif
+// qui se réinitialise correctement après chaque navigation client-side (Next.js)
 import { BASE_PATH } from "@/lib/constants";
 import { useLang } from "@/lib/i18n/useLang";
 import { getDictionary } from "@/lib/i18n";
@@ -25,24 +25,25 @@ export default function ProjectNavigation({ nextProject, previousProject }: Proj
     const t = getDictionary(lang);
     const imageContainerRef = useRef<HTMLDivElement>(null);
 
-    // Retirer le grayscale quand l'image est visible dans le viewport
+    // Intersection Observer : retire/remet le grayscale selon la visibilité de l'image
+    // Plus fiable que GSAP ScrollTrigger après une navigation client-side Next.js
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        const ctx = gsap.context(() => {
-            const imageContainer = imageContainerRef.current;
-            if (imageContainer) {
-                ScrollTrigger.create({
-                    trigger: imageContainer,
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    onEnter: () => imageContainer.classList.remove("grayscale"),
-                    onLeave: () => imageContainer.classList.add("grayscale"),
-                    onEnterBack: () => imageContainer.classList.remove("grayscale"),
-                    onLeaveBack: () => imageContainer.classList.add("grayscale"),
-                });
-            }
-        });
-        return () => ctx.revert();
+        const imageContainer = imageContainerRef.current;
+        if (!imageContainer) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    imageContainer.classList.remove("grayscale");
+                } else {
+                    imageContainer.classList.add("grayscale");
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        observer.observe(imageContainer);
+        return () => observer.disconnect();
     }, []);
 
     return (

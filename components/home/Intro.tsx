@@ -22,6 +22,15 @@ const Intro: React.FC = () => {
     const lineRef = useRef<HTMLDivElement | null>(null);
     const descRef = useRef<HTMLParagraphElement | null>(null);
     const titleRef = useRef<HTMLHeadingElement | null>(null);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
+
+    // Sur mobile, autoPlay HTML seul peut être bloqué par le navigateur.
+    // On appelle .play() manuellement après le montage pour forcer la lecture.
+    useEffect(() => {
+        videoRef.current?.play().catch(() => {
+            // Silencieux : si le navigateur bloque quand même (rare), on ne fait rien
+        });
+    }, []);
 
     // useEffect: calcule les dimensions et lance les animations liées au scroll après montage
     useEffect(() => {
@@ -86,7 +95,7 @@ const Intro: React.FC = () => {
         <section id="#" ref={sectionRef} className="relative h-screen overflow-hidden">
             <div className="absolute inset-0 flex flex-col justify-end items-center gap-10 mb-20 md:mb-0">
                 <div ref={imageRef} className="w-[63vw] md:w-[53vw] lg:w-[43vw] aspect-[16/9] overflow-hidden shadow-xl">
-                    <video src={`${BASE_PATH}/velo/Intro.mp4`} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                    <video ref={videoRef} src={`${BASE_PATH}/velo/Intro.mp4`} autoPlay loop muted playsInline className="w-full h-full object-cover" />
                 </div>
                 <div ref={textRef} className="flex flex-col justify-center items-center">
                     <div ref={lineRef} className="w-full border-t-2 border-dashed border-ink opacity-70 my-2 md:my-8 mx-0.5"></div>

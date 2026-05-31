@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { Download } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { BASE_PATH } from "@/lib/constants";
@@ -140,6 +141,20 @@ export default function SubjectProfile() {
                         {t.profileAvailabilityDetail}
                     </p>
                 </div>
+            </div>
+
+            <div className="subp-line w-full border-t border-dashed border-ink mt-5" />
+
+            {/* Bouton télécharger CV */}
+            <div className="subp-slide pt-5">
+                <a
+                    href={`${BASE_PATH}/CV_Stage.pdf`}
+                    download
+                    className="flex items-center justify-center gap-3 w-full border border-ink px-4 py-3 uppercase text-xs font-bold tracking-[0.2em] hover:bg-ink hover:text-cream transition-colors duration-300"
+                >
+                    <Download className="w-4 h-4" />
+                    {t.profileCvLabel}
+                </a>
             </div>
 
         </aside>
