@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     },
     authors: [{ name: "Nolann Lescop" }],
     creator: "Nolann Lescop",
+    // Vérification Google Search Console — génère une balise <meta> dans le <head>
+    verification: {
+        google: "WoaxZPHsFQKvMHOOD36zrxRW_MdPI1TNwNC0aBWphXw",
+    },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
