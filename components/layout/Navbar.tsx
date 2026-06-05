@@ -73,9 +73,19 @@ export const Navbar: React.FC = () => {
             <button className="btn btn-ghost text-2xl hidden md:block md:justify-self-center" onClick={() => setMenuOpen(true)}>
                 {t.nav.menu}
             </button>
-            <button className="btn btn-md btn-ghost md:hidden text-xl justify-self-end" onClick={() => setMenuOpen(true)}>
-                <Menu size={35} />
-            </button>
+            {/* Sur mobile : bouton langue + hamburger groupés à droite */}
+            <div className="flex flex-col items-center justify-self-end gap-1 md:hidden">
+                <button className="btn btn-md btn-ghost text-xl" onClick={() => setMenuOpen(true)}>
+                    <Menu size={35} />
+                </button>
+                <Link
+                    href={langSwitchHref}
+                    className="btn btn-ghost text-sm font-bold tracking-widest px-2"
+                    title={lang === "fr" ? "Switch to English" : "Passer en français"}
+                >
+                    {otherLang.toUpperCase()}
+                </Link>
+            </div>
 
             {/* Menu fullscreen */}
             <section ref={menuPcRef} className={`fixed inset-0 bg-ink text-cream mix-blend-normal flex flex-col items-center justify-center transition-all duration-500 ease-in-out z-50 overflow-hidden
