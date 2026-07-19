@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { Asterisk } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Asterisk, ChevronDown } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -9,6 +9,12 @@ import { BASE_PATH } from "@/lib/constants";
 import { useLang } from "@/lib/i18n/useLang";
 import { getDictionary } from "@/lib/i18n";
 import type { ScreenshotItem } from "@/data/projects";
+import useEmblaCarousel from 'embla-carousel-react'
+import {
+  NextButton,
+  PrevButton,
+} from './EmblaCarouselArrowButtons'
+import Autoplay from 'embla-carousel-autoplay'
 
 interface ProjectScreenshotsProps {
     screenshots: ScreenshotItem[];
@@ -25,6 +31,53 @@ export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsPr
     const sectionRef = useRef<HTMLElement>(null);
     const asteriskLeftRef = useRef<SVGSVGElement>(null);
     const asteriskRightRef = useRef<SVGSVGElement>(null);
+    const dropdownContentRef = useRef<HTMLDivElement>(null);
+    const dropdownIconRef = useRef<SVGSVGElement>(null);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const [emblaRef, emblaApi] = useEmblaCarousel(
+        { loop: true, align: "center" },
+        [Autoplay()]
+    )
+    
+        
+    // Aplatit les screenshots pour gérer les cas où un screenshot est un tableau (ex: plusieurs images pour un même screenshot)
+    const slides = screenshots.flatMap((screenshot) =>
+        // Si screenshot est un tableau, on le retourne tel quel, sinon on le met dans un tableau pour l'aplatir 
+        Array.isArray(screenshot) ? screenshot : [screenshot]
+    )
+
+    const onPrevButtonClick = () => emblaApi?.scrollPrev()
+    const onNextButtonClick = () => emblaApi?.scrollNext()
+
+    useEffect(() => {
+        if (!dropdownContentRef.current || !dropdownIconRef.current) return;
+
+        const content = dropdownContentRef.current;
+        const icon = dropdownIconRef.current;
+
+        if (isDropdownOpen) {
+            gsap.set(content, { display: "flex" });
+            gsap.fromTo(
+                content,
+                { height: 0, opacity: 0, y: -12 },
+                { height: "auto", opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }
+            );
+            gsap.to(icon, { rotate: 180, duration: 0.35, ease: "power3.out" });
+        } else {
+            gsap.to(icon, { rotate: 0, duration: 0.25, ease: "power3.out" });
+            gsap.to(content, {
+                height: 0,
+                opacity: 0,
+                y: -12,
+                duration: 0.25,
+                ease: "power3.inOut",
+                onComplete: () => {
+                    gsap.set(content, { display: "none" });
+                },
+            });
+        }
+    }, [isDropdownOpen]);
 
     // Animations GSAP à l'apparition
     useEffect(() => {
@@ -83,25 +136,61 @@ export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsPr
             </div>
 
             <div className="w-full bg-page py-8">
-                <div className="w-[98vw] mx-auto flex flex-col gap-8">
-                    {screenshots.map((item, index) =>
-                        // Cas 1 : string → image pleine largeur (comportement d'origine)
-                        typeof item === "string" ? (
-                            <div key={index} className="screenshot-card relative w-full overflow-hidden bg-[#1a1a1a]">
-                                <Image src={`${BASE_PATH}${item}`} alt={`Screenshot ${index + 1}`} width={0} height={0} sizes="98vw" className="w-full h-auto max-h-[70vh] object-contain" />
+
+                <div className="embla">
+                    <div className="embla__viewport" ref={emblaRef}>
+                        <div className="embla__container">
+                        {/* Rendu des slides avec les images des screenshots */}
+                        {slides.map((screenshot, index) => (
+                            <div key={index} className="embla__slide">
+                                <Image src={`${BASE_PATH}${screenshot}`} alt="Project screenshot" width={0} height={0} className="embla__slide__img"/>
                             </div>
-                        ) : (
-                            // Cas 2 : string[]
-                            <div key={index} className="screenshot-card flex flex-row flex-wrap justify-center gap-3 md:gap-5 w-full bg-[#1a1a1a] p-6 md:p-10">
-                                {item.map((screenshot, i) => (
-                            
-                                    <div key={i} className="w-[90vw] md:w-[20vw] min-w-[80px] shrink-0 overflow-hidden">
-                                        <Image src={`${BASE_PATH}${screenshot}`} alt={`Screenshot ${index + 1}.${i + 1}`} width={0} height={0} sizes="10vw" className="w-full h-auto object-contain shadow-lg" />
-                                    </div>
-                                ))}
-                            </div>
-                        )
-                    )}
+                        ))}
+                        </div>
+                    </div>
+            
+                    <div className="embla__controls">
+                    <div className="embla__buttons">
+                        <PrevButton onClick={onPrevButtonClick} />
+                        <NextButton onClick={onNextButtonClick} />
+                    </div>
+                    </div>
+                </div>
+
+                <div className="screenshots-dropdown w-[98vw] mx-auto mt-10">
+                    <button
+                        type="button"
+                        onClick={() => setIsDropdownOpen((value) => !value)}
+                        className="w-full screenshots-dropdown__trigger cursor-pointer list-none rounded-full border border-white bg-page px-5 py-3 text-center text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-white transition duration-200 hover:bg-white hover:text-page"
+                        aria-expanded={isDropdownOpen}
+                        aria-controls="screenshots-dropdown-content"
+                    >
+                        <span>{t.projects.carouselBtnTitle}</span>
+                        <ChevronDown ref={dropdownIconRef} className="screenshots-dropdown__icon h-4 w-4 md:h-5 md:w-5" />
+                    </button>
+
+                    <div
+                        id="screenshots-dropdown-content"
+                        ref={dropdownContentRef}
+                        className="screenshots-dropdown__content mt-6 flex flex-col gap-8"
+                        style={{ display: "none", overflow: "hidden" }}
+                    >
+                        {screenshots.map((item, index) =>
+                            typeof item === "string" ? (
+                                <div key={index} className="screenshot-card relative w-full overflow-hidden bg-[#1a1a1a]">
+                                    <Image src={`${BASE_PATH}${item}`} alt={`Screenshot ${index + 1}`} width={0} height={0} sizes="98vw" className="w-full h-auto max-h-[70vh] object-contain" />
+                                </div>
+                            ) : (
+                                <div key={index} className="screenshot-card flex flex-row flex-wrap justify-center gap-3 md:gap-5 w-full bg-[#1a1a1a] p-6 md:p-10">
+                                    {item.map((screenshot, i) => (
+                                        <div key={i} className="w-[90vw] md:w-[20vw] min-w-[80px] shrink-0 overflow-hidden">
+                                            <Image src={`${BASE_PATH}${screenshot}`} alt={`Screenshot ${index + 1}.${i + 1}`} width={0} height={0} sizes="10vw" className="w-full h-auto object-contain shadow-lg" />
+                                        </div>
+                                    ))}
+                                </div>
+                            )
+                        )}
+                    </div>
                 </div>
             </div>
         </section>

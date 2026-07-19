@@ -38,14 +38,120 @@ html, body {
     }
 }
 
-@layer components {
+.embla {
+  width: min(100%, 110rem);
+  margin: auto;
 
-    /* Style pour le titre de la page d'accueil */
-    .title-home {
-        font-size: 10vw; /* taille fixe */
-    }
+  --slide-spacing: 1.25rem;
+}
 
-    .text-home {
-        font-size: 50px; /* taille fixe */
-    }
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 auto;
+  width: fit-content;
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+  transition: opacity 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.embla__slide__img {
+  display: block;
+  height: auto;
+  width: auto;
+  min-width: 18rem;
+  max-width: min(76vw, 64rem);
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: 1.8rem;
+}
+
+.embla__controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.8rem;
+}
+
+.embla__buttons {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.embla__button {
+  -webkit-tap-highlight-color: white;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 5rem;
+  height: 5rem;
+
+  z-index: 1;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(0deg);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.embla__button:hover {
+  transform: scale(1.2);
+}
+
+.embla__button:active {
+  transform: scale(0.96);
+}
+
+.embla__button__svg {
+  width: 35%;
+  height: 35%;
+}
+
+.screenshots-dropdown__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.screenshots-dropdown__trigger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.screenshots-dropdown__content {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .embla {
+    width: min(100%, 100vw);
+    --slide-spacing: 0.75rem;
+  }
+
+  .embla__slide__img {
+    min-width: 12.5rem;
+    max-width: 86vw;
+    max-height: 52vh;
+  }
 }

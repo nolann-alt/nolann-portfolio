@@ -17,8 +17,8 @@ export const en = {
         greeting: "Hi there, I'm Nolann LESCOP",
         bio: "I'm a student at the IUT in Vannes in the second year of a computer science degree, and I'm looking for an internship to apply my knowledge and develop my skills in the IT field.",
         cta: "LEARN MORE",
-        featuredTitle1: "Featured",
-        featuredTitle2: "Projects",
+        featuredTitle1: "Selected",
+        featuredTitle2: "Works",
         featuredSubtitle: "A selection of recent projects illustrating my career in the field of computer science",
         moreProjects: "More",
         moreProjectsLabel: "projects",
@@ -107,6 +107,7 @@ export const en = {
         navEnd: "End of projects",
         screenshotsTitle: "Screenshots",
         screenshotsSubtitle: "A visual overview of the project's interface and features",
+        carouselBtnTitle: "View all screenshots",
     },
     shared: {
         pageEndTitle: "Let's work together!",

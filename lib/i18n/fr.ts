@@ -28,8 +28,8 @@ export const fr: Dictionary = {
         moreProjectsLabel: "réalisations",
     },
     about: {
-        title1: "Mon",
-        title2: "PARCOURS",
+        title1: "À",
+        title2: "PROPOS",
         backgroundTitle0: "Mon",
         backgroundTitle: "Parcours",
         philosophySubtitle: "Philosophie & Vision",
@@ -72,7 +72,7 @@ export const fr: Dictionary = {
     },
     experiences: {
         heroScriptWord: "Mon",
-        heroSansWord: "Expériences",
+        heroSansWord: "Expérience",
         heroSubtitle: "Formation, expériences & compétences",
         profileLabel: "Profil",
         profileStatusLabel: "Statut",
@@ -111,6 +111,7 @@ export const fr: Dictionary = {
         navEnd: "Fin des projets",
         screenshotsTitle: "Découvrir",
         screenshotsSubtitle: "Aperçu visuel de l'interface et des fonctionnalités du projet",
+        carouselBtnTitle: "Voir tous les screenshots",
     },
     shared: {
         pageEndTitle: "Travaillons ensemble !",

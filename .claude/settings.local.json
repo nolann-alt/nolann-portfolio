@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/projects/skills-portfolio)",
+      "Bash(curl -s http://localhost:3000/projects/skills-portfolio)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(rm /home/lescop/Documents/Projets_Perso/mon-portfolio/app/projects/[slug]/layout.tsx /home/lescop/Documents/Projets_Perso/mon-portfolio/app/projects/layout.tsx)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/projects)",
+      "Bash(npm run *)",
+      "Bash(git rm *)",
+      "Bash(GITHUB_ACTIONS=true npm run build)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(grep -rl \"\\\\/\\\\*\\\\*\\\\s*\\\\n\\\\s*function\" . -name \"*.tsx\")",
+      "Bash(grep -rl \"\\\\/\\\\*\\\\*\\\\s*\\\\n\\\\s*const\\\\s*[A-Z]\" . -name \"*.tsx\")",
+      "WebFetch(domain:nolann-alt.github.io)",
+      "Bash(curl -s https://nolann-alt.github.io/nolann-portfolio/)",
+      "Bash(npx tsc *)"
+    ],
+    "additionalDirectories": [
+      "/home/lescop/Documents/Projets_Perso/mon-portfolio/app/projects/[slug]"
+    ]
+  }
+}
