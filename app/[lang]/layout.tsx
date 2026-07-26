@@ -61,7 +61,10 @@ function JsonLd({ lang }: { lang: Lang }) {
         url: `${BASE_URL}/${lang}`,
         jobTitle: isFr ? "Étudiant en BUT Informatique" : "Computer Science Student",
         email: "nolann.lescop@outlook.com",
-        sameAs: ["https://github.com/nolann-alt"],
+        sameAs: [
+            "https://github.com/nolann-alt",
+            "https://www.linkedin.com/in/nolann-lescop-00427233a/",
+        ],
     };
 
     // dangerouslySetInnerHTML est nécessaire ici pour injecter du JSON brut dans une balise <script>

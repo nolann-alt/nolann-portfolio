@@ -6,14 +6,14 @@ import LoadingScreen from "@/components/shared/LoadingScreen";
 // Next.js l'utilise pour résoudre les chemins relatifs (ex: images Open Graph)
 export const metadata: Metadata = {
     metadataBase: new URL("https://nolann-alt.github.io/nolann-portfolio"),
-    // template : "%s" sera remplacé par le titre de chaque page
     title: {
-        default: "Nolann Lescop — Portfolio",
+        default: "Nolann Lescop | Développeur Web & Portfolio",
         template: "%s | Nolann Lescop",
     },
+    description: "Portfolio officiel de Nolann Lescop, développeur. Découvrez mes projets, compétences et réalisations.",
     authors: [{ name: "Nolann Lescop" }],
     creator: "Nolann Lescop",
-    // Vérification Google Search Console — génère une balise <meta> dans le <head>
+    keywords: ["Nolann Lescop", "Nolann Lescop portfolio", "Développeur Web", "Next.js", "React"],
     verification: {
         google: "WoaxZPHsFQKvMHOOD36zrxRW_MdPI1TNwNC0aBWphXw",
     },
