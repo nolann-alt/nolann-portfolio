@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     },
     description: "Portfolio officiel de Nolann Lescop, développeur. Découvrez mes projets, compétences et réalisations.",
     icons: {
-        icon: "/icon.png",
-        apple: "/icon.png",
+        icon: "icon.png",
+        apple: "icon.png",
     },
     authors: [{ name: "Nolann Lescop" }],
     creator: "Nolann Lescop",
