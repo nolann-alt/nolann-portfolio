@@ -30,10 +30,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
         // alternates : balises hreflang — indique à Google qu'il existe
         // une version FR et une version EN du même contenu
         alternates: {
-            canonical: `${BASE_URL}/${lang}`,
+            canonical: `${BASE_URL}/${lang}/`,
             languages: {
-                "fr": `${BASE_URL}/fr`,
-                "en": `${BASE_URL}/en`,
+                "fr": `${BASE_URL}/fr/`,
+                "en": `${BASE_URL}/en/`,
             },
         },
         // openGraph : contrôle l'aperçu affiché sur LinkedIn, Discord, etc.
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
             type: "website",
             locale: isFr ? "fr_FR" : "en_US",
             alternateLocale: isFr ? "en_US" : "fr_FR",
-            url: `${BASE_URL}/${lang}`,
+            url: `${BASE_URL}/${lang}/`,
             siteName: "Nolann Lescop — Portfolio",
             title,
             description,
@@ -58,12 +58,13 @@ function JsonLd({ lang }: { lang: Lang }) {
         "@context": "https://schema.org",
         "@type": "Person",
         name: "Nolann Lescop",
-        url: `${BASE_URL}/${lang}`,
+        url: `${BASE_URL}/${lang}/`,
         jobTitle: isFr ? "Étudiant en BUT Informatique" : "Computer Science Student",
         email: "nolann.lescop@outlook.com",
         sameAs: [
             "https://github.com/nolann-alt",
             "https://www.linkedin.com/in/nolann-lescop-00427233a/",
+            "https://www.youtube.com/@NolannLESCOP",
         ],
     };
 

@@ -7,10 +7,14 @@ import LoadingScreen from "@/components/shared/LoadingScreen";
 export const metadata: Metadata = {
     metadataBase: new URL("https://nolann-alt.github.io/nolann-portfolio"),
     title: {
-        default: "Nolann Lescop | Développeur Web & Portfolio",
+        default: "Nolann Lescop | Développeur & Portfolio",
         template: "%s | Nolann Lescop",
     },
     description: "Portfolio officiel de Nolann Lescop, développeur. Découvrez mes projets, compétences et réalisations.",
+    icons: {
+        icon: "/icon.png",
+        apple: "/icon.png",
+    },
     authors: [{ name: "Nolann Lescop" }],
     creator: "Nolann Lescop",
     keywords: ["Nolann Lescop", "Nolann Lescop portfolio", "Développeur Web", "Next.js", "React"],
